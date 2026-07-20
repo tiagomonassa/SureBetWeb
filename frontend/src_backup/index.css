@@ -1,0 +1,178 @@
+:root {
+
+  --bg:#0f172a;
+
+  --bg-secondary:#111827;
+
+  --card:#1f2937;
+
+  --border:#334155;
+
+  --text:#f8fafc;
+
+  --text-secondary:#94a3b8;
+
+  --primary:#2563eb;
+
+  --success:#22c55e;
+
+  --danger:#ef4444;
+
+  --warning:#facc15;
+
+
+  --sans:'Inter', Arial, Helvetica, sans-serif;
+
+
+  font-family:var(--sans);
+
+  color:var(--text);
+
+  background:var(--bg);
+
+  font-synthesis:none;
+
+  text-rendering:optimizeLegibility;
+
+  -webkit-font-smoothing:antialiased;
+
+  -moz-osx-font-smoothing:grayscale;
+
+}
+
+
+
+
+
+* {
+
+  margin:0;
+
+  padding:0;
+
+  box-sizing:border-box;
+
+}
+
+
+
+
+
+body {
+
+  width:100%;
+
+  min-height:100vh;
+
+  background:var(--bg);
+
+  color:var(--text);
+
+  font-family:var(--sans);
+
+}
+
+
+
+
+
+#root {
+
+  width:100%;
+
+  min-height:100vh;
+
+}
+
+
+
+
+
+h1,
+h2,
+h3,
+h4 {
+
+  color:#ffffff;
+
+}
+
+
+
+
+
+p {
+
+  color:var(--text-secondary);
+
+}
+
+
+
+
+
+button {
+
+  font-family:var(--sans);
+
+  cursor:pointer;
+
+}
+
+
+
+
+
+input {
+
+  font-family:var(--sans);
+
+}
+
+
+
+
+
+code {
+
+  font-family:Consolas, monospace;
+
+  background:#111827;
+
+  color:#e2e8f0;
+
+  padding:4px 8px;
+
+  border-radius:6px;
+
+}
+
+
+
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+
+  width:8px;
+
+}
+
+
+
+::-webkit-scrollbar-track {
+
+  background:#111827;
+
+}
+
+
+
+::-webkit-scrollbar-thumb {
+
+  background:#334155;
+
+  border-radius:10px;
+
+}

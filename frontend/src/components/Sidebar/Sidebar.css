@@ -1,0 +1,599 @@
+/* =================================
+   SIDEBAR PREMIUM BLACK NEON
+================================= */
+
+
+.sidebar {
+
+
+  width:250px;
+
+
+  min-height:calc(100vh - 72px);
+
+
+
+  background:
+
+
+  linear-gradient(
+
+    180deg,
+
+    #151c26,
+
+    #080b10
+
+  );
+
+
+
+  border-right:
+
+
+  1px solid #242c38;
+
+
+
+  padding:24px 16px;
+
+
+
+  position:relative;
+
+
+}
+
+
+
+
+
+/* linha luminosa lateral */
+
+
+.sidebar::after {
+
+
+  content:"";
+
+
+  position:absolute;
+
+
+  right:0;
+
+
+  top:0;
+
+
+  width:2px;
+
+
+  height:100%;
+
+
+
+  background:
+
+
+  linear-gradient(
+
+    transparent,
+
+    #00e676,
+
+    transparent
+
+  );
+
+
+
+  opacity:.5;
+
+
+}
+
+
+
+
+
+
+/* =================================
+   TITULO MENU PREMIUM
+================================= */
+
+
+.sidebar-title {
+
+
+  width:100%;
+
+
+
+  text-align:center;
+
+
+
+  color:#9aa8b8;
+
+
+
+  font-size:13px;
+
+
+
+  font-weight:800;
+
+
+
+  letter-spacing:2px;
+
+
+
+  margin-bottom:28px;
+
+
+
+  padding:0;
+
+
+
+  position:relative;
+
+
+
+  text-transform:uppercase;
+
+
+
+  text-shadow:
+
+
+  0 0 12px rgba(0,230,118,.25);
+
+
+}
+
+
+
+
+
+
+.sidebar-title::after {
+
+
+  content:"";
+
+
+  position:absolute;
+
+
+  left:20%;
+
+
+
+  bottom:-12px;
+
+
+
+  width:60%;
+
+
+
+  height:2px;
+
+
+
+  background:
+
+
+  linear-gradient(
+
+    90deg,
+
+    transparent,
+
+    #00e676,
+
+    transparent
+
+  );
+
+
+
+  box-shadow:
+
+
+  0 0 12px rgba(0,230,118,.7);
+
+
+}
+
+
+
+
+
+
+
+/* =================================
+   MENU
+================================= */
+
+
+.menu {
+
+
+  display:flex;
+
+
+  flex-direction:column;
+
+
+  gap:12px;
+
+
+}
+
+
+
+
+
+
+
+/* =================================
+   BOTÕES
+================================= */
+
+
+.menu-item {
+
+
+  width:100%;
+
+
+  height:52px;
+
+
+
+  display:flex;
+
+
+  align-items:center;
+
+
+  gap:14px;
+
+
+
+  padding:0 18px;
+
+
+
+  border-radius:14px;
+
+
+
+  text-decoration:none;
+
+
+
+  color:#b8c0cc;
+
+
+
+  background:
+
+
+  linear-gradient(
+
+    145deg,
+
+    rgba(255,255,255,.04),
+
+    rgba(255,255,255,.01)
+
+  );
+
+
+
+  border:
+
+
+  1px solid transparent;
+
+
+
+  font-size:15px;
+
+
+
+  font-weight:600;
+
+
+
+  letter-spacing:.2px;
+
+
+
+  transition:.35s ease;
+
+
+
+  position:relative;
+
+
+
+  overflow:hidden;
+
+
+}
+
+
+
+
+
+
+/* brilho interno */
+
+
+.menu-item::after {
+
+
+  content:"";
+
+
+  position:absolute;
+
+
+  top:0;
+
+
+  left:-100%;
+
+
+  width:60%;
+
+
+  height:100%;
+
+
+
+  background:
+
+
+  linear-gradient(
+
+    90deg,
+
+    transparent,
+
+    rgba(255,255,255,.12),
+
+    transparent
+
+  );
+
+
+
+  transition:.5s;
+
+
+}
+
+
+
+
+
+.menu-item:hover::after {
+
+
+  left:120%;
+
+
+}
+
+
+
+
+
+
+
+/* hover */
+
+
+.menu-item:hover {
+
+
+  color:white;
+
+
+
+  border-color:
+
+
+  rgba(0,230,118,.35);
+
+
+
+  transform:
+
+
+  translateX(6px);
+
+
+
+  box-shadow:
+
+
+  0 0 25px rgba(0,230,118,.18);
+
+
+}
+
+
+
+
+
+
+
+/* =================================
+   ICONES
+================================= */
+
+
+.menu-item span {
+
+
+  width:28px;
+
+
+  height:28px;
+
+
+
+  display:flex;
+
+
+  align-items:center;
+
+
+  justify-content:center;
+
+
+
+  border-radius:8px;
+
+
+
+  background:
+
+
+  rgba(0,230,118,.12);
+
+
+
+  font-size:16px;
+
+
+}
+
+
+
+
+
+
+
+/* =================================
+   ITEM ATIVO
+================================= */
+
+
+.menu-item.active {
+
+
+  color:white;
+
+
+
+  background:
+
+
+  linear-gradient(
+
+    90deg,
+
+    rgba(0,230,118,.22),
+
+    rgba(0,230,118,.04)
+
+  );
+
+
+
+  border-color:
+
+
+  rgba(0,230,118,.45);
+
+
+
+  box-shadow:
+
+
+  0 0 25px rgba(0,230,118,.18);
+
+
+}
+
+
+
+
+
+
+
+.menu-item.active::before {
+
+
+  content:"";
+
+
+  position:absolute;
+
+
+  left:0;
+
+
+  top:20%;
+
+
+  height:60%;
+
+
+  width:4px;
+
+
+
+  border-radius:10px;
+
+
+
+  background:#00e676;
+
+
+
+  box-shadow:
+
+
+  0 0 15px #00e676;
+
+
+}
+
+
+
+
+
+
+
+/* =================================
+   RESPONSIVO
+================================= */
+
+
+@media(max-width:768px){
+
+
+.sidebar{
+
+
+width:100%;
+
+
+min-height:auto;
+
+
+}
+
+
+
+}

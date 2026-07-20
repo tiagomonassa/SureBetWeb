@@ -1,0 +1,528 @@
+.scanner-monitor {
+
+    width:100%;
+
+    background:#1f2937;
+
+    border-radius:16px;
+
+    padding:18px 20px;
+
+    margin-top:20px;
+
+    color:white;
+
+    border:1px solid #334155;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.25);
+
+    box-sizing:border-box;
+
+}
+
+
+
+/* ==========================
+   TITULO
+========================== */
+
+
+.monitor-header {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:16px;
+
+}
+
+
+
+
+.scanner-title {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding-top:12px;
+
+}
+
+
+
+.scanner-title span {
+
+    font-size:18px;
+
+    line-height:1;
+
+}
+
+
+
+.scanner-title h3 {
+
+    margin:0;
+
+    padding:0;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    line-height:1;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   STATUS ONLINE
+========================== */
+
+
+.scanner-status {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#94a3b8;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+.status-dot {
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+}
+
+
+
+.status-dot.online {
+
+    background:#22c55e;
+
+    box-shadow:
+        0 0 8px #22c55e;
+
+}
+
+
+
+.status-dot.offline {
+
+    background:#ef4444;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   GRID DOS CARDS
+========================== */
+
+
+.scanner-info {
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:16px;
+
+    width:100%;
+
+    margin-bottom:22px;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   CARDS
+========================== */
+
+
+.info-card {
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#111827;
+
+    border:1px solid #334155;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    height:95px;
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    transition:.25s;
+
+}
+
+
+
+
+
+.info-card:hover {
+
+    transform:translateY(-3px);
+
+    border-color:#3b82f6;
+
+    box-shadow:
+
+        0 8px 20px rgba(0,0,0,.30);
+
+}
+
+
+
+
+
+
+/* barras coloridas */
+
+
+.info-card::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+}
+
+
+
+.info-card:nth-child(1)::before {
+
+    background:#06b6d4;
+
+}
+
+
+
+.info-card:nth-child(2)::before {
+
+    background:#3b82f6;
+
+}
+
+
+
+.info-card:nth-child(3)::before {
+
+    background:#22c55e;
+
+}
+
+
+
+.info-card:nth-child(4)::before {
+
+    background:#8b5cf6;
+
+}
+
+
+
+.info-card:nth-child(5)::before {
+
+    background:#f59e0b;
+
+}
+
+
+
+
+
+
+
+.info-card span {
+
+    color:#94a3b8;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+
+
+
+
+.info-card strong {
+
+    color:#ffffff;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    word-break:break-word;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   SEM LOG
+========================== */
+
+
+.empty-scanner {
+
+    background:#111827;
+
+    border:1px solid #334155;
+
+    border-radius:14px;
+
+    padding:20px;
+
+    color:#94a3b8;
+
+    text-align:center;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   HISTORICO
+========================== */
+
+
+.scanner-history h3 {
+
+    margin:0 0 14px;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+.scanner-row {
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr 1fr 1fr;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:13px 15px;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
+
+    border:1px solid #334155;
+
+    font-size:13px;
+
+}
+
+
+
+.scanner-row span {
+
+    color:#e5e7eb;
+
+}
+
+
+
+.scanner-row span:nth-child(2) {
+
+    color:#38bdf8;
+
+}
+
+
+
+.scanner-row span:nth-child(3) {
+
+    color:#22c55e;
+
+}
+
+
+
+.scanner-row span:nth-child(4) {
+
+    color:#facc15;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   ERRO
+========================== */
+
+
+.scanner-error {
+
+    background:#450a0a;
+
+    border:1px solid #991b1b;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+
+@media(max-width:1200px){
+
+
+    .scanner-info {
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+
+}
+
+
+
+@media(max-width:700px){
+
+
+    .scanner-info {
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .monitor-header {
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+
+}
+
+
+
+@media(max-width:450px){
+
+
+    .scanner-info {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .scanner-row {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+}

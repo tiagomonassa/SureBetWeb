@@ -1,0 +1,375 @@
+.odds-page {
+
+    width:100%;
+
+    color:white;
+
+}
+
+
+
+
+
+.odds-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.odds-header h2 {
+
+    margin:0;
+
+    font-size:26px;
+
+    font-weight:800;
+
+}
+
+
+
+
+
+.odds-header span {
+
+    background:#1f2937;
+
+    padding:10px 16px;
+
+    border-radius:12px;
+
+    color:#94a3b8;
+
+    border:1px solid #334155;
+
+}
+
+
+
+
+
+
+
+
+.odds-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+}
+
+
+
+
+
+
+
+
+.odd-card {
+
+
+    background:#1f2937;
+
+
+    border:1px solid #334155;
+
+
+    border-radius:16px;
+
+
+    padding:20px;
+
+
+    transition:.25s;
+
+
+}
+
+
+
+
+
+
+
+.odd-card:hover {
+
+
+    transform:translateY(-4px);
+
+
+    border-color:#3b82f6;
+
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.25);
+
+
+}
+
+
+
+
+
+
+
+.odd-title {
+
+
+    color:#94a3b8;
+
+
+    font-size:13px;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+.odd-card > strong {
+
+
+    display:block;
+
+
+    margin:10px 0 20px;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+.odd-info {
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    margin-top:12px;
+
+
+    color:#cbd5e1;
+
+
+}
+
+
+
+
+
+
+
+.odd-info b {
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+
+.odd-values {
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(3,1fr);
+
+
+    gap:10px;
+
+
+    margin-top:22px;
+
+
+}
+
+
+
+
+
+
+
+.odd-values div {
+
+
+    background:#111827;
+
+
+    border-radius:12px;
+
+
+    padding:12px;
+
+
+    text-align:center;
+
+
+    border:1px solid #334155;
+
+
+}
+
+
+
+
+
+
+
+.odd-values span {
+
+
+    display:block;
+
+
+    font-size:12px;
+
+
+    color:#94a3b8;
+
+
+    margin-bottom:8px;
+
+
+}
+
+
+
+
+
+
+
+.odd-values strong {
+
+
+    margin:0;
+
+
+    font-size:22px;
+
+
+    color:#22c55e;
+
+
+}
+
+
+
+
+
+
+
+.loading,
+.empty {
+
+
+    background:#1f2937;
+
+
+    padding:25px;
+
+
+    border-radius:14px;
+
+
+    border:1px solid #334155;
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:1200px){
+
+
+    .odds-grid{
+
+
+        grid-template-columns:repeat(3,1fr);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+@media(max-width:900px){
+
+
+    .odds-grid{
+
+
+        grid-template-columns:repeat(2,1fr);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+    .odds-grid{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+}

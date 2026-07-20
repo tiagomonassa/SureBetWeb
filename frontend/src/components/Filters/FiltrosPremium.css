@@ -1,0 +1,452 @@
+/* =========================================
+   FILTROS PREMIUM - SUREBETWEB
+========================================= */
+
+.filtros-premium{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+
+        2fr
+
+        1fr
+
+        1fr
+
+        1fr;
+
+
+    gap:18px;
+
+
+    padding:22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(24,34,50,.95),
+
+        rgba(13,17,23,.98)
+
+    );
+
+
+
+    border-radius:18px;
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+
+
+    box-shadow:
+
+
+    0 12px 35px rgba(0,0,0,.35),
+
+
+    0 0 25px rgba(0,230,118,.08);
+
+
+
+    position:relative;
+
+    overflow:hidden;
+
+
+
+    margin-bottom:5px;
+
+
+}
+
+
+
+/* =========================================
+   BRILHO INTERNO
+========================================= */
+
+.filtros-premium::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:220px;
+
+    height:220px;
+
+
+
+    right:-80px;
+
+    top:-100px;
+
+
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(0,230,118,.25),
+
+        transparent 70%
+
+    );
+
+
+
+    filter:blur(35px);
+
+
+
+}
+
+
+
+/* LINHA SUPERIOR LUMINOSA */
+
+.filtros-premium::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+    left:10%;
+
+
+
+    width:80%;
+
+    height:2px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        #00e676,
+
+        transparent
+
+    );
+
+
+
+    opacity:.8;
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   ITEM
+========================================= */
+
+.filtro-item{
+
+
+    position:relative;
+
+    z-index:2;
+
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:8px;
+
+
+}
+
+
+
+
+.filtro-item label{
+
+
+    color:#8fa2bd;
+
+
+
+    font-size:13px;
+
+
+
+    font-weight:700;
+
+
+
+    letter-spacing:.3px;
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   CAMPOS
+========================================= */
+
+.filtro-item input,
+
+.filtro-item select{
+
+
+    height:46px;
+
+
+
+    width:100%;
+
+
+
+    padding:0 15px;
+
+
+
+    background:
+
+    rgba(10,14,20,.85);
+
+
+
+    color:#ffffff;
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.10);
+
+
+
+    border-radius:12px;
+
+
+
+    outline:none;
+
+
+
+    font-size:14px;
+
+
+
+    transition:.3s ease;
+
+
+
+}
+
+
+
+
+
+
+.filtro-item input::placeholder{
+
+
+    color:#66758a;
+
+
+}
+
+
+
+
+
+
+/* HOVER */
+
+.filtro-item input:hover,
+
+.filtro-item select:hover{
+
+
+    border-color:
+
+    rgba(0,230,118,.45);
+
+
+
+}
+
+
+
+
+
+
+
+/* FOCO */
+
+.filtro-item input:focus,
+
+.filtro-item select:focus{
+
+
+    border-color:#00e676;
+
+
+
+    box-shadow:
+
+
+    0 0 18px rgba(0,230,118,.35),
+
+
+    inset 0 0 12px rgba(0,230,118,.08);
+
+
+
+}
+
+
+
+
+
+
+/* SELECT */
+
+.filtro-item select{
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+/* ANIMAÇÃO */
+
+.filtros-premium{
+
+
+    animation:
+
+    filtroEntrada .5s ease;
+
+
+}
+
+
+
+@keyframes filtroEntrada{
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:
+
+        translateY(-15px);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:
+
+        translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* RESPONSIVO */
+
+@media(max-width:1200px){
+
+
+    .filtros-premium{
+
+
+        grid-template-columns:
+
+        repeat(2,1fr);
+
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:650px){
+
+
+    .filtros-premium{
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+    }
+
+
+}

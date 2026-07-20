@@ -1,0 +1,534 @@
+/* =========================================
+   CONFIG PAGE
+========================================= */
+
+
+.config-page{
+
+    width:100%;
+
+    padding:24px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+
+
+
+
+/* =========================================
+   GRID DOS 3 CARDS PRINCIPAIS
+========================================= */
+
+
+.config-grid{
+
+
+    width:100%;
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+    repeat(3,1fr);
+
+
+
+    gap:30px;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   CARD PADRÃO PREMIUM
+========================================= */
+
+
+.config-card{
+
+
+    position:relative;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(24,34,50,.95),
+
+        rgba(13,17,23,.98)
+
+    );
+
+
+
+
+    padding:24px;
+
+
+
+    min-height:220px;
+
+
+
+    border-radius:18px;
+
+
+
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,.08);
+
+
+
+
+
+
+
+    box-shadow:
+
+
+    0 10px 30px rgba(0,0,0,.35),
+
+
+    0 0 20px rgba(0,230,118,.08);
+
+
+
+
+
+
+
+    overflow:hidden;
+
+
+
+    display:flex;
+
+
+
+    flex-direction:column;
+
+
+
+    gap:14px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   FAIXA COLORIDA SUPERIOR
+========================================= */
+
+
+.config-card::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+
+    top:0;
+
+
+
+    left:0;
+
+
+
+    width:100%;
+
+
+
+    height:5px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/* BANCA */
+
+
+.config-card:nth-child(1)::before{
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #00e676,
+
+        #00b248
+
+    );
+
+
+}
+
+
+
+
+
+
+
+
+/* FILTRO */
+
+
+.config-card:nth-child(2)::before{
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #2196f3,
+
+        #1565c0
+
+    );
+
+
+}
+
+
+
+
+
+
+
+
+/* ATUALIZAÇÃO */
+
+
+.config-card:nth-child(3)::before{
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #ffca28,
+
+        #ff9800
+
+    );
+
+
+}
+
+
+
+
+
+
+
+
+/* MERCADOS */
+
+
+.mercados-card::before{
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #7c4dff,
+
+        #512da8
+
+    );
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   TEXTOS
+========================================= */
+
+
+.config-card h3{
+
+
+    margin-top:8px;
+
+
+    color:#ffffff;
+
+
+    font-size:18px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+.config-card label{
+
+
+    color:#cbd5e1;
+
+
+    font-size:14px;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+.config-card small{
+
+
+    color:#94a3b8;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+
+.config-card input[type="number"]{
+
+
+    width:100%;
+
+
+    background:#0f172a;
+
+
+
+    color:#ffffff;
+
+
+
+    border:
+
+
+    1px solid #334155;
+
+
+
+    border-radius:10px;
+
+
+
+    padding:12px;
+
+
+
+    font-size:16px;
+
+
+
+}
+
+
+
+
+
+
+
+.config-card input[type="number"]:focus{
+
+
+    outline:none;
+
+
+    border-color:#00e676;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   CARD MERCADOS
+========================================= */
+
+
+.mercados-card{
+
+
+    width:100%;
+
+
+    min-height:260px;
+
+
+}
+
+
+
+
+
+
+
+.mercados-card label{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    padding:8px 0;
+
+
+}
+
+
+
+
+
+
+
+.config-card input[type="checkbox"]{
+
+
+    margin-right:10px;
+
+
+    accent-color:#00e676;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+
+@media(max-width:1100px){
+
+
+    .config-grid{
+
+
+        grid-template-columns:
+
+
+        repeat(2,1fr);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:700px){
+
+
+    .config-grid{
+
+
+        grid-template-columns:
+
+
+        1fr;
+
+
+    }
+
+
+}

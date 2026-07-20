@@ -1,0 +1,294 @@
+/* =========================================
+   DASHBOARD PAGE
+========================================= */
+
+.dashboard-page{
+
+    width:100%;
+
+    padding:24px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+/* =========================================
+   TITULO SUREBETS PREMIUM
+========================================= */
+
+
+.section-title{
+
+
+    width:100%;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:space-between;
+
+
+
+    padding:18px 22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(24,34,50,.95),
+
+        rgba(13,17,23,.98)
+
+    );
+
+
+
+    border-radius:18px;
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+
+
+    box-shadow:
+
+
+    0 10px 30px rgba(0,0,0,.35),
+
+
+    0 0 20px rgba(0,230,118,.08);
+
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+.section-title::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    left:0;
+
+    top:0;
+
+
+    width:5px;
+
+
+    height:100%;
+
+
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        #00e676,
+
+        #00b248
+
+    );
+
+
+
+    box-shadow:
+
+
+    0 0 18px #00e676;
+
+
+}
+
+
+
+
+
+.section-title h2{
+
+
+    margin:0;
+
+
+    margin-left:8px;
+
+
+
+    color:#ffffff;
+
+
+
+    font-size:22px;
+
+
+
+    font-weight:800;
+
+
+
+    letter-spacing:.3px;
+
+
+}
+
+
+
+
+
+.section-title span{
+
+
+    color:#00e676;
+
+
+
+    font-size:13px;
+
+
+
+    font-weight:700;
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+
+}
+
+
+
+
+
+.section-title span::before{
+
+
+    content:"";
+
+
+    width:8px;
+
+
+    height:8px;
+
+
+    border-radius:50%;
+
+
+
+    background:#00e676;
+
+
+
+    margin-right:8px;
+
+
+
+    box-shadow:
+
+
+    0 0 12px #00e676;
+
+
+    animation:pulseStatus 1.5s infinite;
+
+
+}
+
+
+
+
+@keyframes pulseStatus{
+
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+
+    50%{
+
+        transform:scale(1.4);
+
+        opacity:.5;
+
+    }
+
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media(max-width:700px){
+
+
+    .section-title{
+
+
+        flex-direction:column;
+
+
+        align-items:flex-start;
+
+
+        gap:10px;
+
+
+    }
+
+
+}

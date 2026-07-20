@@ -1,0 +1,83 @@
+.scanner-box {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+
+}
+
+
+
+.scanner-button {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  border: 1px solid #334155;
+
+  padding: 12px 24px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: .3px;
+
+  transition: .25s;
+
+  box-shadow:
+
+    0 4px 12px rgba(0,0,0,.15);
+
+}
+
+
+
+.scanner-button:hover {
+
+  background: #1e293b;
+
+  border-color: #475569;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+
+    0 8px 18px rgba(0,0,0,.20);
+
+}
+
+
+
+.scanner-button:active {
+
+  transform: scale(.97);
+
+}
+
+
+
+.scanner-message {
+
+  font-size: 13px;
+
+  color: #475569;
+
+  font-weight: 600;
+
+}

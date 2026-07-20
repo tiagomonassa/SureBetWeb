@@ -1,0 +1,370 @@
+/* =================================
+   SCANNER BUTTON PREMIUM BLACK NEON
+================================= */
+
+
+.scanner-box {
+
+
+    width:100%;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:20px;
+
+
+    padding:18px 22px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        145deg,
+
+        #151c26,
+
+        #090d13
+
+    );
+
+
+
+    border:
+
+
+    1px solid #263140;
+
+
+
+    border-radius:18px;
+
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(0,0,0,.35);
+
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+/* brilho superior */
+
+
+.scanner-box::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    left:15%;
+
+
+    width:70%;
+
+
+    height:2px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        #00e676,
+
+        #00b8ff,
+
+        transparent
+
+    );
+
+
+
+    opacity:.8;
+
+
+}
+
+
+
+
+
+
+.scanner-button {
+
+
+    height:48px;
+
+
+
+    padding:0 30px;
+
+
+
+    border:none;
+
+
+
+    border-radius:14px;
+
+
+
+    cursor:pointer;
+
+
+
+    position:relative;
+
+
+
+    overflow:hidden;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #00e676,
+
+        #00b248
+
+    );
+
+
+
+    color:white;
+
+
+
+    font-size:15px;
+
+
+
+    font-weight:700;
+
+
+
+    letter-spacing:.3px;
+
+
+
+    box-shadow:
+
+
+    0 0 25px rgba(0,230,118,.45);
+
+
+
+    transition:.35s ease;
+
+
+}
+
+
+
+
+
+
+/* brilho passando */
+
+
+.scanner-button::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    left:-120%;
+
+
+    width:80%;
+
+
+    height:100%;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.35),
+
+        transparent
+
+    );
+
+
+
+    transition:.5s;
+
+
+}
+
+
+
+
+
+.scanner-button:hover::before {
+
+
+    left:130%;
+
+
+}
+
+
+
+
+
+
+.scanner-button:hover {
+
+
+    transform:
+
+
+    translateY(-3px);
+
+
+
+    box-shadow:
+
+
+    0 0 40px rgba(0,230,118,.8);
+
+
+}
+
+
+
+
+
+
+
+.scanner-button:disabled {
+
+
+    opacity:.6;
+
+
+    cursor:not-allowed;
+
+
+    transform:none;
+
+
+}
+
+
+
+
+
+
+.scanner-message {
+
+
+    color:#b8c0cc;
+
+
+
+    font-size:14px;
+
+
+
+    font-weight:600;
+
+
+
+    animation:
+
+
+    fadeIn .3s ease;
+
+
+}
+
+
+
+
+
+
+@keyframes fadeIn {
+
+
+from{
+
+
+opacity:0;
+
+
+transform:translateX(-10px);
+
+
+}
+
+
+to{
+
+
+opacity:1;
+
+
+transform:translateX(0);
+
+
+}
+
+
+}

@@ -1,0 +1,410 @@
+/* =====================================================
+   SUREBET ROW PREMIUM V2
+===================================================== */
+
+.surebet-row{
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+    border-bottom:
+
+        1px solid rgba(255,255,255,.05);
+
+}
+
+
+
+.surebet-row td{
+
+    padding:18px 16px;
+
+    vertical-align:middle;
+
+}
+
+
+
+/* =====================================================
+   HOVER LINHA
+===================================================== */
+
+.surebet-row:hover{
+
+    background:
+
+        rgba(0,230,118,.05);
+
+    box-shadow:
+
+        inset 4px 0 #00e676;
+
+}
+
+
+
+
+
+/* =====================================================
+   NOVA SUREBET
+===================================================== */
+
+.nova-surebet{
+
+    animation:
+
+        novaGlow 8s ease;
+
+}
+
+
+
+@keyframes novaGlow{
+
+    0%{
+
+        background:
+
+        rgba(0,230,118,.30);
+
+        box-shadow:
+
+        0 0 35px rgba(0,230,118,.45);
+
+    }
+
+
+    100%{
+
+        background:transparent;
+
+        box-shadow:none;
+
+    }
+
+}
+
+
+
+
+
+/* =====================================================
+   EVENTO
+===================================================== */
+
+.evento-nome{
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+
+
+.evento-data{
+
+    margin-top:6px;
+
+    color:#8fa2bd;
+
+    font-size:12px;
+
+}
+
+
+
+
+
+/* =====================================================
+   CASAS
+===================================================== */
+
+.casa-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.casa-item strong{
+
+    color:#00e676;
+
+    font-size:14px;
+
+}
+
+
+
+.casa-item span{
+
+    color:#d7dfeb;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+/* =====================================================
+   LUCRO
+===================================================== */
+
+.lucro-badge{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:
+
+    8px 14px;
+
+    border-radius:12px;
+
+    background:
+
+    rgba(0,230,118,.12);
+
+    color:#00e676;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    box-shadow:
+
+    0 0 18px rgba(0,230,118,.20);
+
+}
+
+
+
+
+
+/* =====================================================
+   AÇÕES
+===================================================== */
+
+.acoes{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+.acao-btn{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.25s;
+
+    color:white;
+
+}
+
+
+
+
+
+.acao-btn.verde{
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #00e676,
+
+        #00a152
+
+    );
+
+
+
+    box-shadow:
+
+    0 0 15px rgba(0,230,118,.25);
+
+}
+
+
+
+.acao-btn.azul{
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #2196f3,
+
+        #1565c0
+
+    );
+
+
+
+    box-shadow:
+
+    0 0 15px rgba(33,150,243,.25);
+
+}
+
+
+
+
+
+.acao-btn:hover{
+
+    transform:
+
+    translateY(-3px)
+
+    scale(1.05);
+
+}
+
+
+
+.acao-btn:active{
+
+    transform:
+
+    scale(.95);
+
+}
+
+
+
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:1200px){
+
+    .surebet-row td{
+
+        padding:14px 10px;
+
+    }
+
+}
+
+.bookmaker-link {
+
+    color: #00e676;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+
+.bookmaker-link:hover {
+
+    text-decoration: underline;
+    filter: brightness(1.2);
+
+}
+
+.bookmaker-area {
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+}
+
+
+
+.abrir-btn {
+
+    background:#00c853;
+    border:none;
+    color:white;
+
+    padding:4px 10px;
+
+    border-radius:6px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+.abrir-btn:hover {
+
+    filter:brightness(1.15);
+
+}
+
+.acao-btn.roxo {
+
+
+    background:#7c4dff;
+
+
+}
+
+
+.acao-btn.roxo:hover {
+
+
+    filter:brightness(1.2);
+
+
+}
+
+.retorno-aposta {
+
+    color:#64b5f6;
+
+    font-weight:700;
+
+    margin-top:4px;
+
+}

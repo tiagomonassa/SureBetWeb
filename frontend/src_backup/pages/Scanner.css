@@ -1,0 +1,15 @@
+.scanner-page{
+    width:100%;
+}
+
+.scanner-page h1{
+    font-size:28px;
+    font-weight:700;
+    margin:0 0 10px;
+}
+
+.scanner-page p{
+    font-size:15px;
+    color:#8b97a8;
+    margin:0 0 20px;
+}

@@ -1,0 +1,478 @@
+/* =========================================
+   SUREBET TABLE PREMIUM
+========================================= */
+
+.table-container{
+
+
+    width:100%;
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(24,34,50,.95),
+
+        rgba(13,17,23,.98)
+
+    );
+
+
+
+    border-radius:18px;
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+
+
+    overflow:hidden;
+
+
+
+    box-shadow:
+
+
+    0 12px 35px rgba(0,0,0,.35),
+
+
+    0 0 25px rgba(0,230,118,.08);
+
+
+
+    position:relative;
+
+
+}
+
+
+
+
+
+/* brilho superior */
+
+.table-container::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    left:10%;
+
+
+    width:80%;
+
+
+    height:2px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        #00e676,
+
+        transparent
+
+    );
+
+
+}
+
+
+
+
+
+/* =========================================
+   TABELA
+========================================= */
+
+.surebet-table{
+
+
+    width:100%;
+
+
+    border-collapse:collapse;
+
+
+    color:#ffffff;
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.surebet-table thead{
+
+
+    background:
+
+
+    rgba(0,0,0,.25);
+
+
+}
+
+
+
+
+
+.surebet-table th{
+
+
+    height:58px;
+
+
+
+    padding:
+
+    0 18px;
+
+
+
+    text-align:left;
+
+
+
+    color:#8fa2bd;
+
+
+
+    font-size:13px;
+
+
+
+    font-weight:700;
+
+
+
+    text-transform:uppercase;
+
+
+
+    letter-spacing:.4px;
+
+
+
+    border-bottom:
+
+
+    1px solid rgba(255,255,255,.08);
+
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   LINHAS
+========================================= */
+
+.surebet-table td{
+
+
+    padding:
+
+    18px;
+
+
+
+    font-size:14px;
+
+
+
+    border-bottom:
+
+
+    1px solid rgba(255,255,255,.05);
+
+
+
+    color:#dbe5f3;
+
+
+
+}
+
+
+
+
+
+
+
+.surebet-table tbody tr{
+
+
+    transition:.3s ease;
+
+
+}
+
+
+
+
+
+
+.surebet-table tbody tr:hover{
+
+
+    background:
+
+
+    rgba(0,230,118,.06);
+
+
+
+    box-shadow:
+
+
+    inset 0 0 25px rgba(0,230,118,.05);
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   LUCRO
+========================================= */
+
+.lucro-positive{
+
+
+    color:#00e676 !important;
+
+
+
+    font-weight:800;
+
+
+
+    text-shadow:
+
+
+    0 0 12px rgba(0,230,118,.45);
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.table-action{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #00e676,
+
+        #00b248
+
+    );
+
+
+
+    color:#fff;
+
+
+
+    border:none;
+
+
+
+    border-radius:10px;
+
+
+
+    padding:
+
+    8px 14px;
+
+
+
+    font-size:12px;
+
+
+
+    font-weight:700;
+
+
+
+    cursor:pointer;
+
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.table-action:hover{
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+    box-shadow:
+
+
+    0 0 20px rgba(0,230,118,.5);
+
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   TABELA VAZIA
+========================================= */
+
+.empty-table{
+
+
+    height:220px;
+
+
+
+    text-align:center;
+
+
+
+    color:#8fa2bd;
+
+
+
+}
+
+
+
+
+
+.empty-icon{
+
+
+    font-size:40px;
+
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+
+
+.empty-table h3{
+
+
+    color:#ffffff;
+
+
+    margin:5px;
+
+
+}
+
+
+
+
+
+
+.empty-table p{
+
+
+    color:#8fa2bd;
+
+
+}
+
+
+
+
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media(max-width:900px){
+
+
+    .table-container{
+
+
+        overflow-x:auto;
+
+
+    }
+
+
+
+    .surebet-table{
+
+
+        min-width:900px;
+
+
+    }
+
+
+}

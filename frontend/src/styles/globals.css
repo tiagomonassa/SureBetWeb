@@ -1,0 +1,260 @@
+/* =================================
+   SureBetWeb - Black Premium Theme
+================================= */
+
+
+*,
+*::before,
+*::after {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+
+/* =================================
+   VARIÁVEIS DO SISTEMA
+================================= */
+
+
+:root {
+
+  --bg-primary: #080b10;
+
+  --bg-secondary: #0d1117;
+
+  --bg-card: #121820;
+
+  --bg-card-hover: #18212c;
+
+
+  --border: #242c38;
+
+
+  --text-primary: #ffffff;
+
+  --text-secondary: #9aa4b2;
+
+
+  --green: #00e676;
+
+  --green-dark: #00b248;
+
+
+  --blue: #00b8ff;
+
+
+  --red: #ff4d4f;
+
+
+  --shadow:
+  0 10px 30px rgba(0,0,0,.45);
+
+
+  --shadow-green:
+  0 0 25px rgba(0,230,118,.35);
+
+
+
+  font-family:
+
+  Inter,
+  "Segoe UI",
+  Roboto,
+  Arial,
+  sans-serif;
+
+}
+
+
+
+/* =================================
+   HTML / BODY
+================================= */
+
+
+html {
+
+  background: var(--bg-primary);
+
+}
+
+
+body {
+
+  min-height:100vh;
+
+  background:
+
+  radial-gradient(
+    circle at top,
+    #111827 0%,
+    #080b10 45%
+  );
+
+
+  color:
+  var(--text-primary);
+
+
+  font-size:14px;
+
+
+  overflow-x:hidden;
+
+
+}
+
+
+
+/* =================================
+   TEXTOS
+================================= */
+
+
+h1,
+h2,
+h3,
+h4 {
+
+  font-weight:600;
+
+  color:
+  var(--text-primary);
+
+}
+
+
+
+p {
+
+  color:
+  var(--text-secondary);
+
+}
+
+
+
+/* =================================
+   BOTÕES BASE
+================================= */
+
+
+button {
+
+  font-family:inherit;
+
+  border:none;
+
+  outline:none;
+
+}
+
+
+
+/* =================================
+   BOTÃO PREMIUM PADRÃO
+================================= */
+
+
+.btn-premium {
+
+
+  background:
+
+  linear-gradient(
+    135deg,
+    var(--green),
+    var(--green-dark)
+  );
+
+
+  color:white;
+
+
+  padding:
+
+  10px 20px;
+
+
+  border-radius:10px;
+
+
+  font-size:14px;
+
+
+  font-weight:600;
+
+
+  cursor:pointer;
+
+
+  box-shadow:
+
+  var(--shadow-green);
+
+
+  transition:
+
+  all .3s ease;
+
+
+}
+
+
+
+.btn-premium:hover {
+
+
+  transform:
+
+  translateY(-3px);
+
+
+  box-shadow:
+
+  0 0 35px rgba(0,230,118,.65);
+
+
+}
+
+
+
+/* =================================
+   SCROLLBAR PREMIUM
+================================= */
+
+
+::-webkit-scrollbar {
+
+  width:8px;
+
+}
+
+
+
+::-webkit-scrollbar-track {
+
+  background:#080b10;
+
+}
+
+
+
+::-webkit-scrollbar-thumb {
+
+  background:#263242;
+
+  border-radius:10px;
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover {
+
+  background:#00e676;
+
+}
