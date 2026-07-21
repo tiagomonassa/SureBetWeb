@@ -1,13 +1,17 @@
 import "./ConfigPage.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useSurebets } from "../context/SurebetContext";
+
+import {
+    buscarConfiguracao,
+    salvarConfiguracao
+} from "../services/api";
 
 
 
 function ConfigPage(){
-
 
 
     const {
@@ -18,7 +22,6 @@ function ConfigPage(){
 
 
     } = useSurebets();
-
 
 
 
@@ -48,6 +51,85 @@ function ConfigPage(){
 
 
 
+    useEffect(() => {
+
+
+        async function carregarConfig(){
+
+
+            try {
+
+
+                const config = await buscarConfiguracao();
+
+
+
+                setBanca(config.valor_total);
+
+
+
+                setLucroMinimo(config.lucro_minimo);
+
+
+
+                setIntervalo(config.intervalo_scan);
+
+
+
+                const listaMercados =
+                    config.mercados.split(",");
+
+
+
+                setMercados({
+
+
+                    h2h:
+                        listaMercados.includes("h2h"),
+
+
+
+                    totals:
+                        listaMercados.includes("totals"),
+
+
+
+                    spreads:
+                        listaMercados.includes("spreads"),
+
+
+
+                    corners:false
+
+
+                });
+
+
+
+            } catch(error){
+
+
+                console.log(
+                    "Erro ao carregar configuração",
+                    error
+                );
+
+
+            }
+
+
+        }
+
+
+
+        carregarConfig();
+
+
+
+    }, []);
+
+
+
 
 
 
@@ -61,10 +143,91 @@ function ConfigPage(){
             ...mercados,
 
 
-            [nome]:!mercados[nome]
+            [nome]:
+                !mercados[nome]
 
 
         });
+
+
+    }
+
+
+
+
+
+
+
+
+
+    async function salvar(){
+
+
+        try {
+
+
+            await salvarConfiguracao({
+
+
+                valor_total:
+                    Number(banca),
+
+
+
+                lucro_minimo:
+                    Number(lucroMinimo),
+
+
+
+                sport_key:
+                    "soccer_epl",
+
+
+
+                mercados:
+
+                    Object.keys(mercados)
+
+                    .filter(
+
+                        mercado =>
+                            mercados[mercado]
+
+                    )
+
+                    .join(","),
+
+
+
+                intervalo_scan:
+                    Number(intervalo)
+
+
+            });
+
+
+
+            alert(
+                "Configuração salva!"
+            );
+
+
+
+        } catch(error){
+
+
+            console.log(
+                "Erro ao salvar configuração",
+                error
+            );
+
+
+            alert(
+                "Erro ao salvar configuração"
+            );
+
+
+        }
 
 
     }
@@ -84,18 +247,12 @@ function ConfigPage(){
 
 
 
-
-
-
-
             <div className="section-title">
 
 
                 <h2>
 
-
                     ⚙️ Configurações do Sistema
-
 
                 </h2>
 
@@ -108,69 +265,66 @@ function ConfigPage(){
 
 
 
-
-
-
-
             <div className="config-grid">
 
 
 
-
-
-
-
                 <div className="config-card">
 
 
-
                     <h3>
-
 
                         💰 Gestão da banca
 
-
                     </h3>
 
 
 
-
-
                     <label>
-
 
                         Valor padrão
 
-
                     </label>
-
-
 
 
 
                     <input
 
 
-                    type="number"
+                        type="number"
 
 
-                    value={banca}
+                        value={banca}
 
-onChange={(e) => {
 
-    const valor = e.target.value;
 
-    if (valor === "") {
+                        onChange={(e)=>{
 
-        setBanca("");
 
-        return;
+                            const valor =
+                                e.target.value;
 
-    }
 
-    setBanca(Number(valor));
 
-}}
+                            if(valor===""){
+
+
+                                setBanca("");
+
+                                return;
+
+
+                            }
+
+
+
+                            setBanca(
+                                Number(valor)
+                            );
+
+
+                        }}
+
 
 
                     />
@@ -178,11 +332,9 @@ onChange={(e) => {
 
 
                     <small>
-
 
                         Valor usado nos cálculos
 
-
                     </small>
 
 
@@ -197,65 +349,52 @@ onChange={(e) => {
 
 
 
-
-
-
-
                 <div className="config-card">
-
 
 
                     <h3>
 
-
                         📈 Filtro de oportunidades
-
 
                     </h3>
 
 
 
-
-
                     <label>
-
 
                         Lucro mínimo (%)
 
-
                     </label>
-
-
 
 
 
                     <input
 
 
-                    type="number"
+                        type="number"
 
 
-                    value={lucroMinimo}
+                        value={lucroMinimo}
 
 
-                    onChange={
 
-                        e =>
+                        onChange={(e)=>
 
-                        setLucroMinimo(
 
-                            Number(
+                            setLucroMinimo(
 
-                                e.target.value
+                                Number(
+                                    e.target.value
+                                )
 
                             )
 
-                        )
+                        }
 
-                    }
 
 
                     />
+
 
 
                 </div>
@@ -268,97 +407,68 @@ onChange={(e) => {
 
 
 
-
-
-
-
                 <div className="config-card">
-
 
 
                     <h3>
 
-
                         🔄 Atualização
-
 
                     </h3>
 
 
 
-
-
                     <label>
-
 
                         Intervalo do sistema
 
-
                     </label>
-
-
 
 
 
                     <input
 
 
-                    type="number"
+                        type="number"
 
 
-                    value={intervalo}
+                        value={intervalo}
 
 
-                    onChange={
 
-                        e =>
+                        onChange={(e)=>
 
-                        setIntervalo(
 
-                            Number(
+                            setIntervalo(
 
-                                e.target.value
+                                Number(
+                                    e.target.value
+                                )
 
                             )
 
-                        )
+                        }
 
-                    }
 
 
                     />
-
-
 
 
 
                     <small>
 
-
                         segundos
-
 
                     </small>
 
 
 
                 </div>
-
-
-
-
-
-
-
-
 
 
 
 
             </div>
-
-
-
 
 
 
@@ -374,9 +484,7 @@ onChange={(e) => {
 
                 <h3>
 
-
                     📊 Mercados ativos
-
 
                 </h3>
 
@@ -384,27 +492,25 @@ onChange={(e) => {
 
 
 
-
-
                 <label>
 
 
-                <input
+                    <input
 
 
-                type="checkbox"
+                        type="checkbox"
 
 
-                checked={mercados.h2h}
+                        checked={mercados.h2h}
 
 
-                onChange={()=>alternar("h2h")}
+                        onChange={()=>alternar("h2h")}
 
 
-                />
+                    />
 
 
-                🏆 1X2
+                    🏆 1X2
 
 
                 </label>
@@ -415,27 +521,25 @@ onChange={(e) => {
 
 
 
-
-
                 <label>
 
 
-                <input
+                    <input
 
 
-                type="checkbox"
+                        type="checkbox"
 
 
-                checked={mercados.totals}
+                        checked={mercados.totals}
 
 
-                onChange={()=>alternar("totals")}
+                        onChange={()=>alternar("totals")}
 
 
-                />
+                    />
 
 
-                ⚽ Totais
+                    ⚽ Totais
 
 
                 </label>
@@ -446,27 +550,25 @@ onChange={(e) => {
 
 
 
-
-
                 <label>
 
 
-                <input
+                    <input
 
 
-                type="checkbox"
+                        type="checkbox"
 
 
-                checked={mercados.spreads}
+                        checked={mercados.spreads}
 
 
-                onChange={()=>alternar("spreads")}
+                        onChange={()=>alternar("spreads")}
 
 
-                />
+                    />
 
 
-                🎯 Handicap
+                    🎯 Handicap
 
 
                 </label>
@@ -477,35 +579,49 @@ onChange={(e) => {
 
 
 
-
-
                 <label>
 
 
-                <input
+                    <input
 
 
-                type="checkbox"
+                        type="checkbox"
 
 
-                disabled
+                        disabled
 
 
-                />
+                    />
 
 
-                🚩 Escanteios (em breve)
+                    🚩 Escanteios (em breve)
 
 
                 </label>
-
-
 
 
 
             </div>
 
 
+
+
+
+
+
+
+            <button
+
+                className="btn-salvar"
+
+                onClick={salvar}
+
+            >
+
+                💾 Salvar Configuração
+
+
+            </button>
 
 
 

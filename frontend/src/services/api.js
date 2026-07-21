@@ -126,3 +126,28 @@ export function executarScheduler() {
     return request("/scheduler/executar");
 
 }
+
+export async function buscarConfiguracao() {
+    const resposta = await fetch(
+        `${API_URL}/config`
+    );
+
+    return resposta.json();
+}
+
+
+
+export async function salvarConfiguracao(config) {
+    const resposta = await fetch(
+        `${API_URL}/config`,
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(config)
+        }
+    );
+
+    return resposta.json();
+}
