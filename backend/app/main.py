@@ -11,9 +11,11 @@ from app.routes.oportunidades import router as oportunidades_router
 from app.routes.scheduler import router as scheduler_router
 
 from app.services.scheduler import scheduler
+from app.database import engine, Base
+from app.models import oportunidade, aposta, usuario
 
 
-
+Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(
