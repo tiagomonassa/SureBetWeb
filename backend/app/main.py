@@ -22,11 +22,15 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
 
-    title="SureBetWeb API",
-
-    version="1.0.0",
-
-    description="Sistema inteligente para análise de Surebets"
+   app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://surebetweb.onrender.com",
+        "http://localhost:5173"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 
 )
 
