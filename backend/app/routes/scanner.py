@@ -13,11 +13,7 @@ router = APIRouter(
 @router.get("/")
 def executar_scanner():
 
-    resultado = scanner_service.executar_scan(
-        sport_key="soccer_epl",
-        lucro_minimo=0.5,
-        valor_total=1000
-    )
+    resultado = scanner_service.executar_scan()
 
     return resultado
 
@@ -26,11 +22,7 @@ def executar_scanner():
 @router.post("/executar")
 def executar_scanner_manual():
 
-    resultado = scanner_service.executar_scan(
-        sport_key="soccer_epl",
-        lucro_minimo=0.5,
-        valor_total=1000
-    )
+    resultado = scanner_service.executar_scan()
 
 
     return {
@@ -38,6 +30,9 @@ def executar_scanner_manual():
         "status": "ok",
 
         "mensagem": "Scanner executado manualmente",
+
+        "valor_total_utilizado":
+            resultado["valor_total_utilizado"],
 
         "odds_analisadas":
             resultado["odds_analisadas"],
