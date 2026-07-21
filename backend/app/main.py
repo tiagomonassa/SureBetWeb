@@ -13,6 +13,8 @@ from app.routes.scheduler import router as scheduler_router
 from app.services.scheduler import scheduler
 from app.database import engine, Base
 from app.models import oportunidade, aposta, usuario
+from app.routes.config import router as config_router
+
 
 
 Base.metadata.create_all(bind=engine)
@@ -149,3 +151,5 @@ app.include_router(scheduler_router)
 
 
 app.include_router(dashboard_router)
+
+app.include_router(config_router)

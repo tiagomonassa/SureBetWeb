@@ -133,3 +133,38 @@ def listar_oportunidades(
         .all()
 
     )
+
+    from app.models.configuracao import Configuracao
+
+
+def obter_configuracao(db):
+    config = db.query(Configuracao).first()
+
+    if not config:
+        config = Configuracao(
+            valor_total=1000,
+            lucro_minimo=0,
+            sport_key="soccer_epl",
+            mercados="h2h,totals,spreads",
+            intervalo_scan=15,
+        )
+        db.add(config)
+        db.commit()
+        db.refresh(config)
+
+    return config
+
+
+def atualizar_configuracao(db, dados):
+    config = obter_configuracao(db)
+
+    config.valor_total = dados.valor_total
+    config.lucro_minimo = dados.lucro_minimo
+    config.sport_key = dados.sport_key
+    config.mercados = dados.mercados
+    config.intervalo_scan = dados.intervalo_scan
+
+    db.commit()
+    db.refresh(config)
+
+    return config

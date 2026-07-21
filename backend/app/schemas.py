@@ -51,3 +51,20 @@ class OportunidadeResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+        from pydantic import BaseModel
+
+
+    class ConfiguracaoBase(BaseModel):
+        valor_total: float
+        lucro_minimo: float
+        sport_key: str
+        mercados: str
+        intervalo_scan: int
+
+
+    class ConfiguracaoResponse(ConfiguracaoBase):
+        id: int
+
+    class Config:
+            from_attributes = True
