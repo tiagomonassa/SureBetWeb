@@ -3,6 +3,8 @@
 # FastAPI MAIN
 # ==========================================
 
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -13,10 +15,31 @@ from app.routes import router
 
 
 # ==========================================
-# CRIAÇÃO DO BANCO
+# BANCO + STARTUP
 # ==========================================
 
-Base.metadata.create_all(bind=engine)
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+
+    print("===================================")
+    print("SUREBETWEB API INICIANDO")
+    print("===================================")
+
+    try:
+
+        Base.metadata.create_all(bind=engine)
+
+        print("BANCO OK")
+
+    except Exception as e:
+
+        print("ERRO BANCO:", e)
+
+
+    yield
+
+
+    print("SUREBETWEB API FINALIZADA")
 
 
 
@@ -25,24 +48,28 @@ Base.metadata.create_all(bind=engine)
 # ==========================================
 
 app = FastAPI(
+
     title="SureBetWeb API",
-    version="1.0.0"
+
+    version="1.0.0",
+
+    lifespan=lifespan
+
 )
 
 
 
 # ==========================================
 # CORS
-# Frontend Render + Desenvolvimento Local
+# Frontend Render + Local
 # ==========================================
 
 origins = [
 
-    # Frontend publicado
     "https://surebetweb.onrender.com",
 
-    # Ambiente local Vite
     "http://localhost:5173",
+
     "http://127.0.0.1:5173"
 
 ]
@@ -65,7 +92,7 @@ app.add_middleware(
 
 
 # ==========================================
-# ROTAS PRINCIPAIS
+# ROTAS
 # ==========================================
 
 app.include_router(router)
@@ -73,7 +100,7 @@ app.include_router(router)
 
 
 # ==========================================
-# STATUS API
+# STATUS
 # ==========================================
 
 @app.get("/status")
