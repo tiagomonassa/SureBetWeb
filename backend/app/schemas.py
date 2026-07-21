@@ -7,17 +7,11 @@ from pydantic import BaseModel
 class ApostaResponse(BaseModel):
 
     id: int
-
     casa: str
-
     selecao: str
-
     odd: float
-
     valor_aposta: float
-
     retorno: float
-
 
     class Config:
         from_attributes = True
@@ -27,9 +21,7 @@ class ApostaResponse(BaseModel):
 class OportunidadeResponse(BaseModel):
 
     id: int
-
     evento: str
-
     mercado: str
 
     linha: Optional[float] = None
@@ -48,23 +40,28 @@ class OportunidadeResponse(BaseModel):
 
     apostas: List[ApostaResponse] = []
 
-
     class Config:
         from_attributes = True
 
-        from pydantic import BaseModel
 
 
-    class ConfiguracaoBase(BaseModel):
-        valor_total: float
-        lucro_minimo: float
-        sport_key: str
-        mercados: str
-        intervalo_scan: int
+class ConfiguracaoBase(BaseModel):
+
+    valor_total: float
+
+    lucro_minimo: float
+
+    sport_key: str
+
+    mercados: str
+
+    intervalo_scan: int
 
 
-    class ConfiguracaoResponse(ConfiguracaoBase):
-        id: int
+
+class ConfiguracaoResponse(ConfiguracaoBase):
+
+    id: int
 
     class Config:
-            from_attributes = True
+        from_attributes = True
