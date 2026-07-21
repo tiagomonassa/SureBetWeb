@@ -48,6 +48,8 @@ class ScannerService:
                 Configuracao
             ).first()
 
+            print("CONFIG BANCO:", configuracao)
+
 
             if configuracao:
 
