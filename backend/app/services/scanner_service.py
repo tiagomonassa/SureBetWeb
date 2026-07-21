@@ -11,6 +11,7 @@ from app.crud import (
 )
 
 from app.config.scanner_config import SCANNER_CONFIG
+from app.models.configuracao import Configuracao
 
 
 
@@ -20,11 +21,8 @@ class ScannerService:
     def __init__(self):
 
         self.ultima_execucao = None
-
         self.ultima_quantidade_odds = 0
-
         self.ultima_quantidade_surebets = 0
-
         self.ultimas_oportunidades = []
 
 
@@ -37,21 +35,64 @@ class ScannerService:
     ):
 
 
-        if sport_key is None:
+        # =====================================
+        # CARREGA CONFIGURAÇÃO DO BANCO
+        # =====================================
 
-            sport_key = SCANNER_CONFIG["sport_key"]
-
-
-
-        if lucro_minimo is None:
-
-            lucro_minimo = SCANNER_CONFIG["lucro_minimo"]
+        db_config = SessionLocal()
 
 
+        try:
 
-        if valor_total is None:
+            configuracao = db_config.query(
+                Configuracao
+            ).first()
 
-            valor_total = SCANNER_CONFIG["valor_total"]
+
+            if configuracao:
+
+
+                if sport_key is None:
+                    sport_key = configuracao.sport_key
+
+
+                if lucro_minimo is None:
+                    lucro_minimo = configuracao.lucro_minimo
+
+
+                if valor_total is None:
+                    valor_total = configuracao.valor_total
+
+
+                mercados = configuracao.mercados.split(",")
+
+
+            else:
+
+
+                sport_key = sport_key or SCANNER_CONFIG["sport_key"]
+
+                lucro_minimo = (
+                    lucro_minimo
+                    if lucro_minimo is not None
+                    else SCANNER_CONFIG["lucro_minimo"]
+                )
+
+
+                valor_total = (
+                    valor_total
+                    if valor_total is not None
+                    else SCANNER_CONFIG["valor_total"]
+                )
+
+
+                mercados = SCANNER_CONFIG["mercados"]
+
+
+
+        finally:
+
+            db_config.close()
 
 
 
@@ -67,7 +108,7 @@ class ScannerService:
 
             sport_key=sport_key,
 
-            markets=SCANNER_CONFIG["mercados"]
+            markets=mercados
 
         )
 
@@ -106,11 +147,6 @@ class ScannerService:
             for oportunidade in oportunidades:
 
 
-                # --------------------------------
-                # PROTEÇÃO:
-                # Não salva oportunidade sem apostas
-                # --------------------------------
-
                 apostas = oportunidade.get(
                     "apostas",
                     []
@@ -130,7 +166,7 @@ class ScannerService:
                     oportunidade
 
                 )
-            
+
 
 
                 substituir_apostas(
@@ -141,7 +177,7 @@ class ScannerService:
 
                     apostas
 
-                    )
+                )
 
 
 
@@ -170,23 +206,11 @@ class ScannerService:
 
 
                         "lucro_percentual":
-                            getattr(
-                                nova_oportunidade,
-                                "lucro_percentual",
-                                nova_oportunidade.lucro
-                            ),
+                            nova_oportunidade.lucro_percentual,
 
 
                         "investimento":
-                            getattr(
-                                nova_oportunidade,
-                                "investimento",
-                                getattr(
-                                    nova_oportunidade,
-                                    "valor_investido",
-                                    0
-                                )
-                            ),
+                            nova_oportunidade.investimento,
 
 
                         "retorno_final":
@@ -203,7 +227,6 @@ class ScannerService:
                     }
 
                 )
-
 
 
         finally:
@@ -240,30 +263,28 @@ class ScannerService:
                 "ok",
 
 
-
             "executado_em":
                 inicio.isoformat(),
-
 
 
             "esporte":
                 sport_key,
 
 
-
             "mercados_analisados":
-                SCANNER_CONFIG["mercados"],
+                mercados,
 
+
+            "valor_total_utilizado":
+                valor_total,
 
 
             "odds_analisadas":
                 len(odds),
 
 
-
             "surebets_encontradas":
                 len(oportunidades_salvas),
-
 
 
             "oportunidades":
@@ -290,17 +311,14 @@ class ScannerService:
                 else None,
 
 
-
             "odds_analisadas":
 
                 self.ultima_quantidade_odds,
 
 
-
             "surebets_encontradas":
 
                 self.ultima_quantidade_surebets,
-
 
 
             "rodando":
