@@ -1,7 +1,11 @@
 from fastapi import APIRouter
 
 from app.database import SessionLocal
+
 from app.crud import listar_oportunidades
+
+from app.models.configuracao import Configuracao
+
 
 
 router = APIRouter(
@@ -10,24 +14,88 @@ router = APIRouter(
 )
 
 
+
 @router.get("")
 def obter_oportunidades():
 
     db = SessionLocal()
 
+
     try:
+
 
         dados = listar_oportunidades(db)
 
 
-        return [
 
-            {
+        configuracao = (
+            db.query(Configuracao)
+            .first()
+        )
+
+
+        valor_total = (
+
+            configuracao.valor_total
+
+            if configuracao
+
+            else 1000
+
+        )
+
+
+
+        resultado = []
+
+
+
+        for item in dados:
+
+
+            apostas = []
+
+
+
+            for aposta in item.apostas:
+
+
+                apostas.append({
+
+                    "id": aposta.id,
+
+                    "casa": aposta.casa,
+
+                    "selecao": aposta.selecao,
+
+                    "odd": aposta.odd,
+
+                    "valor_aposta": aposta.valor_aposta,
+
+                    "retorno": aposta.retorno
+
+                })
+
+
+
+
+            lucro_percentual = float(
+                item.lucro_percentual or 0
+            )
+
+
+
+            resultado.append({
+
+
                 "id": item.id,
+
 
                 "evento": item.evento,
 
+
                 "mercado": item.mercado,
+
 
                 "linha": getattr(
                     item,
@@ -36,75 +104,64 @@ def obter_oportunidades():
                 ),
 
 
-                "lucro_percentual": getattr(
-                    item,
-                    "lucro_percentual",
-                    item.lucro
-                ),
+                "lucro_percentual": lucro_percentual,
 
 
-                "investimento": getattr(
-                    item,
-                    "investimento",
-                    getattr(
-                        item,
-                        "valor_investido",
-                        0
-                    )
-                ),
+
+                "investimento":
+
+                    valor_total,
 
 
-                "retorno_final": item.retorno_final,
+
+                "retorno_final":
+
+                    valor_total +
+
+                    (
+                        valor_total *
+                        lucro_percentual /
+                        100
+                    ),
 
 
-                "lucro": item.lucro,
+
+                "lucro":
+
+                    valor_total *
+                    lucro_percentual /
+                    100,
 
 
-                "data_criacao": getattr(
-                    item,
-                    "data_criacao",
-                    getattr(
-                        item,
-                        "data",
-                        None
-                    )
-                ),
+
+                "data_criacao":
+
+                    item.data_criacao,
 
 
-                "data_evento": (
-                    item.data_evento.isoformat() + "Z"
-                    if item.data_evento
-                    else None   
-                
-                ),
+
+                "data_evento":
+
+                    (
+                        item.data_evento.isoformat() + "Z"
+
+                        if item.data_evento
+
+                        else None
+
+                    ),
 
 
-                "apostas": [
 
-                    {
-                        "id": aposta.id,
+                "apostas": apostas
 
-                        "casa": aposta.casa,
 
-                        "selecao": aposta.selecao,
+            })
 
-                        "odd": aposta.odd,
 
-                        "valor_aposta": aposta.valor_aposta,
 
-                        "retorno": aposta.retorno
+        return resultado
 
-                    }
-
-                    for aposta in item.apostas
-
-                ]
-
-            }
-
-            for item in dados
-
-        ]
 
 
     finally:
