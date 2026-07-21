@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 # Modelos do projeto
 from app.models.oportunidade import Oportunidade
 from app.models.aposta import Aposta
+from app.models.configuracao import Configuracao
 
 
 def criar_ou_atualizar_oportunidade(
@@ -134,7 +135,7 @@ def listar_oportunidades(
 
     )
 
-    from app.models.configuracao import Configuracao
+   
 
 
 def obter_configuracao(db):
