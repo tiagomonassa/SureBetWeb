@@ -9,6 +9,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base, engine
 
 
+# Scheduler automático
+from app.services.scheduler import scheduler
+
+
 # Rotas individuais
 from app.routes.status import router as status_router
 from app.routes.dashboard import router as dashboard_router
@@ -16,6 +20,7 @@ from app.routes.oportunidades import router as oportunidades_router
 from app.routes.scanner import router as scanner_router
 from app.routes.sports import router as sports_router
 from app.routes.config import router as config_router
+
 
 
 # ==========================================
@@ -34,6 +39,31 @@ app = FastAPI(
     title="SureBetWeb API",
     version="1.0.0"
 )
+
+
+
+# ==========================================
+# STARTUP
+# Inicia Scanner Automático
+# ==========================================
+
+@app.on_event("startup")
+def iniciar_sistema():
+
+    print("Iniciando SureBetWeb...")
+
+    try:
+
+        scheduler.iniciar()
+
+        print("Scanner automático iniciado")
+
+    except Exception as erro:
+
+        print(
+            "Erro ao iniciar scheduler:",
+            erro
+        )
 
 
 
