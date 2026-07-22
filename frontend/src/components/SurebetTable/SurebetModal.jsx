@@ -101,16 +101,13 @@ function SurebetModal({ oportunidade, onClose }) {
                 Number(aposta.odd);
 
 
-
-
-
             return {
 
                 ...aposta,
 
-                valor_aposta:valor,
+                valor_aposta: Number(valor),
 
-                retorno:retorno
+                retorno: Number(retorno)
 
             };
 
@@ -496,27 +493,62 @@ Abrir Casa ↗
 
 <div className="bet-info">
 
+
     <div>
 
         <span>Casa</span>
 
-        <strong>{aposta.casa}</strong>
+        <strong>
+            {aposta.casa}
+        </strong>
 
     </div>
+
+
 
     <div>
 
         <span>Seleção</span>
 
-        <strong>{nomeSelecao(aposta)}</strong>
+        <strong>
+            {nomeSelecao(aposta)}
+        </strong>
 
     </div>
+
+
 
     <div>
 
         <span>Odd</span>
 
-        <strong>{aposta.odd}</strong>
+        <strong>
+            {aposta.odd}
+        </strong>
+
+    </div>
+
+
+
+    <div>
+
+        <span>💵 Apostar</span>
+
+        <strong>
+            {formatarMoeda(aposta.valor_aposta)}
+        </strong>
+
+    </div>
+
+
+
+    <div>
+
+        <span>💰 Retorno</span>
+
+        <strong>
+            {formatarMoeda(aposta.retorno)}
+        </strong>
 
     </div>
 
