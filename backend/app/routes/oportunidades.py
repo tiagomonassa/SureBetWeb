@@ -1,10 +1,12 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
 from app.database import SessionLocal
 
 from app.crud import listar_oportunidades
 
 from app.models.configuracao import Configuracao
+
+from app.core.security import get_usuario_atual
 
 
 
@@ -16,7 +18,9 @@ router = APIRouter(
 
 
 @router.get("")
-def obter_oportunidades():
+def obter_oportunidades(
+    usuario = Depends(get_usuario_atual)
+):
 
     db = SessionLocal()
 

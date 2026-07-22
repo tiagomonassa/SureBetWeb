@@ -1,15 +1,19 @@
 /* =================================
-   APP LAYOUT - BLACK PREMIUM
+   APP LAYOUT - BLACK PREMIUM NEON
 ================================= */
 
 
 .app {
 
-  min-height:100vh;
+    min-height:100vh;
 
-  background:
-
-  var(--bg-primary);
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(0,230,118,0.08),
+        transparent 35%
+    ),
+    var(--bg-primary);
 
 }
 
@@ -22,9 +26,9 @@
 
 .content {
 
-  display:flex;
+    display:flex;
 
-  width:100%;
+    width:100%;
 
 }
 
@@ -37,16 +41,42 @@
 
 .main {
 
+    flex:1;
 
-  flex:1;
+    padding:28px;
+
+    min-width:0;
+
+    animation:fadePage .35s ease;
+
+}
 
 
-  padding:
 
-  24px;
+/* =================================
+   ANIMAÇÃO
+================================= */
 
 
-  min-width:0;
+@keyframes fadePage {
+
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(8px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
 
 
 }
@@ -61,18 +91,19 @@
 @media(max-width:768px){
 
 
-  .content {
+    .content {
 
-    flex-direction:column;
+        flex-direction:column;
 
-  }
+    }
 
 
-  .main {
 
-    padding:16px;
+    .main {
 
-  }
+        padding:16px;
+
+    }
 
 
 }

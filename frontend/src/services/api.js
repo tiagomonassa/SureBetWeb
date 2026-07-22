@@ -19,12 +19,41 @@ async function request(endpoint, options = {}) {
 
     try {
 
+
+        const token = localStorage.getItem(
+            "token"
+        );
+
+
+        const headers = {
+
+
+            "Content-Type": "application/json"
+
+        };
+
+
+
+        if (token) {
+
+
+            headers.Authorization =
+
+                `Bearer ${token}`;
+
+
+        }
+
+
+
         const response = await fetch(
+
             `${API_URL}${endpoint}`,
+
             {
-                headers: {
-                    "Content-Type": "application/json"
-                },
+
+                headers,
+
                 ...options
             }
         );

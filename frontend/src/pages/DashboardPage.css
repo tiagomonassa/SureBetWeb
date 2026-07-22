@@ -1,18 +1,19 @@
 /* =========================================
-   DASHBOARD PAGE
+   DASHBOARD PAGE - PREMIUM PANEL
 ========================================= */
+
 
 .dashboard-page{
 
     width:100%;
 
-    padding:24px;
+    padding:18px;
 
     display:flex;
 
     flex-direction:column;
 
-    gap:20px;
+    gap:18px;
 
 }
 
@@ -39,7 +40,7 @@
 
 
 
-    padding:18px 22px;
+    padding:20px 24px;
 
 
 
@@ -47,33 +48,36 @@
 
     linear-gradient(
 
-        145deg,
+        135deg,
 
-        rgba(24,34,50,.95),
+        rgba(20,30,45,.96),
 
-        rgba(13,17,23,.98)
+        rgba(8,12,18,.98)
 
     );
 
 
 
-    border-radius:18px;
+    border-radius:16px;
 
 
 
     border:
 
-    1px solid rgba(255,255,255,.08);
+    1px solid rgba(0,230,118,.12);
 
 
 
     box-shadow:
 
 
-    0 10px 30px rgba(0,0,0,.35),
+    0 15px 40px rgba(0,0,0,.45),
 
 
-    0 0 20px rgba(0,230,118,.08);
+    inset 0 1px rgba(255,255,255,.05),
+
+
+    0 0 25px rgba(0,230,118,.06);
 
 
 
@@ -88,6 +92,58 @@
 
 
 
+
+/* brilho superior */
+
+
+.section-title::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    left:20%;
+
+
+    width:60%;
+
+
+    height:1px;
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        #00e676,
+
+        transparent
+
+    );
+
+
+    opacity:.6;
+
+
+}
+
+
+
+
+
+/* barra neon lateral */
+
+
 .section-title::before{
 
 
@@ -99,34 +155,32 @@
 
     left:0;
 
-    top:0;
+
+    top:15%;
 
 
-    width:5px;
+    width:4px;
 
 
-    height:100%;
+    height:70%;
 
 
 
-    background:
+    background:#00e676;
 
-    linear-gradient(
 
-        180deg,
 
-        #00e676,
-
-        #00b248
-
-    );
+    border-radius:10px;
 
 
 
     box-shadow:
 
 
-    0 0 18px #00e676;
+    0 0 15px #00e676,
+
+
+    0 0 30px rgba(0,230,118,.5);
 
 
 }
@@ -141,7 +195,7 @@
     margin:0;
 
 
-    margin-left:8px;
+    margin-left:10px;
 
 
 
@@ -149,7 +203,7 @@
 
 
 
-    font-size:22px;
+    font-size:23px;
 
 
 
@@ -157,7 +211,8 @@
 
 
 
-    letter-spacing:.3px;
+    letter-spacing:.4px;
+
 
 
 }
@@ -186,6 +241,26 @@
 
     align-items:center;
 
+
+    background:
+
+    rgba(0,230,118,.08);
+
+
+
+    padding:
+
+    6px 12px;
+
+
+
+    border-radius:20px;
+
+
+
+    border:
+
+    1px solid rgba(0,230,118,.2);
 
 
 }
@@ -224,10 +299,12 @@
     0 0 12px #00e676;
 
 
+
     animation:pulseStatus 1.5s infinite;
 
 
 }
+
 
 
 
@@ -246,9 +323,9 @@
 
     50%{
 
-        transform:scale(1.4);
+        transform:scale(1.5);
 
-        opacity:.5;
+        opacity:.45;
 
     }
 
@@ -268,12 +345,20 @@
 
 
 
-
 /* =========================================
    RESPONSIVO
 ========================================= */
 
+
 @media(max-width:700px){
+
+
+    .dashboard-page{
+
+        padding:10px;
+
+    }
+
 
 
     .section-title{
@@ -285,8 +370,17 @@
         align-items:flex-start;
 
 
-        gap:10px;
+        gap:12px;
 
+
+    }
+
+
+
+    .section-title h2{
+
+
+        font-size:20px;
 
     }
 

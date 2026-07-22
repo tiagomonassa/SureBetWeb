@@ -1,39 +1,34 @@
-import "./App.css";
+// ==========================================
+// APP
+// SureBetWeb Premium
+// Controle de acesso
+// ==========================================
 
 
 import {
-
-BrowserRouter,
-
-Routes,
-
-Route
-
-} from "react-router-dom";
+    useState
+} from "react";
 
 
-
-import Header from "./components/Header/Header";
-
-import Sidebar from "./components/Sidebar/Sidebar";
-
+import LoginPage from "./pages/LoginPage";
 
 
 import DashboardPage from "./pages/DashboardPage";
 
-import SurebetsPage from "./pages/SurebetsPage";
 
-import CalculadoraPage from "./pages/CalculadoraPage";
-
-import MercadosPage from "./pages/MercadosPage";
-
-import ScannerPage from "./pages/ScannerPage";
-
-import ConfigPage from "./pages/ConfigPage";
+import Header from "./components/Header/Header";
 
 
 
-import { useSurebets } from "./context/SurebetContext";
+import {
+    getToken,
+    logout
+} from "./services/auth";
+
+
+
+import "./App.css";
+
 
 
 
@@ -43,159 +38,151 @@ function App(){
 
 
 
-const {
+    const [
 
-    atualizar
+        autenticado,
 
-} = useSurebets();
+        setAutenticado
 
+    ] = useState(
 
+        !!getToken()
 
+    );
 
 
 
 
-return (
 
 
 
-<BrowserRouter>
+    function entrar(){
 
 
-<div className="app">
+        setAutenticado(true);
 
 
+    }
 
 
 
-<Header
 
-    onRefresh={atualizar}
 
-/>
 
 
 
 
+    function sair(){
 
-<div className="content">
 
+        logout();
 
 
+        setAutenticado(false);
 
 
-<Sidebar />
+    }
 
 
 
 
 
 
-<main className="main">
 
 
 
-<Routes>
+    // ============================
+    // LOGIN
+    // ============================
 
 
+    if(!autenticado){
 
-<Route
 
-path="/"
+        return (
 
-element={<DashboardPage />}
+            <LoginPage
 
-/>
+                onLogin={entrar}
 
+            />
 
+        );
 
 
+    }
 
-<Route
 
-path="/surebets"
 
-element={<SurebetsPage />}
 
-/>
 
 
 
 
 
-<Route
+    // ============================
+    // SISTEMA LOGADO
+    // ============================
 
-path="/calculadora"
 
-element={<CalculadoraPage />}
+    return (
 
-/>
 
+        <div className="app">
 
 
 
 
-<Route
 
-path="/mercados"
 
-element={<MercadosPage />}
 
-/>
+            <Header
 
+                onLogout={sair}
 
+            />
 
 
 
-<Route
 
-path="/scanner"
 
-element={<ScannerPage />}
 
-/>
 
 
 
 
+            <div className="content">
 
-<Route
 
-path="/config"
 
-element={<ConfigPage />}
+                <main className="main">
 
-/>
 
 
+                    <DashboardPage />
 
 
 
-</Routes>
+                </main>
 
 
 
-</main>
+            </div>
 
 
 
-</div>
 
 
 
+        </div>
 
-</div>
 
-
-</BrowserRouter>
-
-
-
-);
-
+    );
 
 
 }
+
+
 
 
 

@@ -1,0 +1,556 @@
+/* ==========================================
+   LOGIN PAGE
+   SUREBETWEB PREMIUM
+========================================== */
+
+
+.login-page {
+
+
+    min-height:100vh;
+
+
+    width:100%;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(0,230,118,.12),
+
+        transparent 40%
+
+    ),
+
+
+    #070b10;
+
+
+
+    padding:20px;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+
+.login-card {
+
+
+    width:380px;
+
+
+
+    padding:40px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(25,35,52,.95),
+
+        rgba(10,14,20,.98)
+
+    );
+
+
+
+    border-radius:24px;
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+
+
+    box-shadow:
+
+
+    0 25px 60px rgba(0,0,0,.6),
+
+
+    0 0 35px rgba(0,230,118,.15);
+
+
+
+    text-align:center;
+
+
+
+    position:relative;
+
+
+
+    overflow:hidden;
+
+
+
+    animation:
+
+    loginShow .5s ease;
+
+}
+
+
+
+
+.login-card::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+    left:0;
+
+
+
+    width:100%;
+
+    height:4px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        #00e676,
+
+        transparent
+
+    );
+
+
+
+    box-shadow:
+
+
+    0 0 20px #00e676;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+
+.login-logo {
+
+
+    font-size:48px;
+
+
+
+    margin-bottom:10px;
+
+
+
+    filter:
+
+
+    drop-shadow(
+
+        0 0 15px #00e676
+
+    );
+
+}
+
+
+
+
+.login-card h1 {
+
+
+    margin:0;
+
+
+
+    color:#fff;
+
+
+
+    font-size:32px;
+
+
+
+    font-weight:900;
+
+
+}
+
+
+
+
+
+.login-card p {
+
+
+    margin-top:8px;
+
+
+
+    margin-bottom:30px;
+
+
+
+    color:#8fa2bd;
+
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+
+.login-card input {
+
+
+    width:100%;
+
+
+
+    box-sizing:border-box;
+
+
+
+    padding:14px 16px;
+
+
+
+    margin-bottom:15px;
+
+
+
+    border-radius:12px;
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.1);
+
+
+
+    background:
+
+
+    rgba(0,0,0,.35);
+
+
+
+    color:#fff;
+
+
+
+    font-size:15px;
+
+
+
+    outline:none;
+
+
+
+    transition:.3s;
+
+
+
+}
+
+
+
+
+
+.login-card input:focus {
+
+
+    border-color:#00e676;
+
+
+
+    box-shadow:
+
+
+    0 0 15px rgba(0,230,118,.25);
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   ERRO
+========================================== */
+
+
+.login-error {
+
+
+    color:#ff5252;
+
+
+
+    background:
+
+    rgba(255,82,82,.1);
+
+
+
+    border:
+
+    1px solid rgba(255,82,82,.25);
+
+
+
+    padding:10px;
+
+
+
+    border-radius:10px;
+
+
+
+    margin-bottom:15px;
+
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   BOTÃO
+========================================== */
+
+
+.login-card button {
+
+
+    width:100%;
+
+
+
+    padding:14px;
+
+
+
+    border:none;
+
+
+
+    border-radius:12px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #00e676,
+
+        #00b248
+
+    );
+
+
+
+    color:#001;
+
+
+
+    font-size:16px;
+
+
+
+    font-weight:800;
+
+
+
+    cursor:pointer;
+
+
+
+    transition:.3s;
+
+
+
+}
+
+
+
+
+
+.login-card button:hover {
+
+
+    transform:
+
+    translateY(-3px);
+
+
+
+    box-shadow:
+
+
+    0 10px 25px rgba(0,230,118,.35);
+
+
+}
+
+
+
+
+.login-card button:disabled {
+
+
+    opacity:.6;
+
+
+
+    cursor:not-allowed;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   ANIMAÇÃO
+========================================== */
+
+
+@keyframes loginShow {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:
+
+        translateY(25px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:
+
+        translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+
+@media(max-width:500px){
+
+
+    .login-card {
+
+
+        width:100%;
+
+
+        padding:30px;
+
+
+    }
+
+
+}

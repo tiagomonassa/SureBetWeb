@@ -1,343 +1,373 @@
 import {
-  useEffect,
-  useState
+    useEffect,
+    useState
 } from "react";
 
 
 import "./Header.css";
 
 
-import { statusAPI } from "../../services/api";
-
-import { useSurebets } from "../../context/SurebetContext";
-
-
-
-function Header() {
+import {
+    statusAPI
+} from "../../services/api";
 
 
-  const {
-
-    atualizar,
-
-    ultimaAtualizacao,
-
-    novasSurebets,
-
-    carregando
+import {
+    useSurebets
+} from "../../context/SurebetContext";
 
 
-  } = useSurebets();
+import {
+    getUsuario,
+    logout
+} from "../../services/auth";
 
 
 
 
-
-  const [status, setStatus] = useState("offline");
-
-
-  const [segundos, setSegundos] = useState(0);
+function Header({ onLogout }) {
 
 
+    const {
 
+        atualizar,
 
+        ultimaAtualizacao,
 
+        novasSurebets,
 
-  async function verificarAPI() {
+        carregando
 
-
-    try {
-
-
-      const resposta = await statusAPI();
-      console.log("STATUS RECEBIDO:", resposta);
+    } = useSurebets();
 
 
 
-      setStatus(
 
-        resposta.api === "online"
+    const [status,setStatus] = useState(
+        "offline"
+    );
 
-    ?
 
-    "online"
-
-    :
-
-    "offline"
-
-      );
+    const [segundos,setSegundos] = useState(0);
 
 
 
-    } catch {
+    const usuario = getUsuario();
 
 
-      setStatus("offline");
 
+
+
+    async function verificarAPI(){
+
+
+        try{
+
+
+            const resposta = await statusAPI();
+
+
+            setStatus(
+
+                resposta.api === "online"
+
+                ?
+
+                "online"
+
+                :
+
+                "offline"
+
+            );
+
+
+        }
+
+        catch{
+
+
+            setStatus("offline");
+
+
+        }
 
     }
 
 
-  }
 
 
 
 
+    useEffect(()=>{
 
 
-
-  /*
-    CONTADOR DESDE A ÚLTIMA ATUALIZAÇÃO
-  */
+        verificarAPI();
 
 
-  useEffect(() => {
+        const timer = setInterval(
 
+            verificarAPI,
 
-    const contador = setInterval(() => {
-
-
-
-      if (ultimaAtualizacao) {
-
-
-        const agora = new Date();
-
-
-
-        const diferenca = Math.floor(
-
-          (agora - ultimaAtualizacao) / 1000
+            30000
 
         );
 
 
-
-        setSegundos(diferenca);
-
-
-      }
+        return ()=>clearInterval(timer);
 
 
-
-    },1000);
-
-
-
-    return () => clearInterval(contador);
-
-
-
-  },[ultimaAtualizacao]);
+    },[]);
 
 
 
 
 
 
+    useEffect(()=>{
 
 
-  /*
-    STATUS DA API
-  */
+        const contador = setInterval(()=>{
 
 
-  useEffect(() => {
+            if(ultimaAtualizacao){
 
 
-    verificarAPI();
+                const agora = new Date();
+
+
+                const diff = Math.floor(
+
+                    (
+                        agora -
+                        ultimaAtualizacao
+
+                    ) / 1000
+
+                );
+
+
+                setSegundos(diff);
+
+
+            }
+
+
+        },1000);
 
 
 
-    const timer = setInterval(
+        return ()=>clearInterval(contador);
 
-      verificarAPI,
 
-      30000
+    },[ultimaAtualizacao]);
+
+
+
+
+
+
+    return (
+
+
+        <header className="header">
+
+
+
+
+
+            {/* ESQUERDA */}
+
+
+            <div className="header-left">
+
+
+                <div 
+                className={`status ${status}`}>
+
+
+                    <span className="dot"></span>
+
+
+                    {
+                        status === "online"
+
+                        ?
+
+                        "API Online"
+
+                        :
+
+                        "API Offline"
+                    }
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            {/* CENTRO */}
+
+
+            <div className="brand-center">
+
+
+
+                <div className="football-animation">
+
+
+                    ⚽
+
+
+                </div>
+
+
+
+                <div className="logo">
+
+
+                    🎯 SureBet
+
+                    <span>
+                        Web
+                    </span>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+            {/* DIREITA */}
+
+
+            <div className="header-right">
+
+
+
+                <div className="header-info">
+
+
+                    🕒
+
+                    Atualizado há {segundos}s
+
+
+                </div>
+
+
+
+
+
+
+                <div className="header-info success">
+
+
+                    ✨
+
+                    {novasSurebets} nova(s)
+
+
+                </div>
+
+
+
+
+
+
+                <button
+
+                    className="btn-refresh"
+
+                    onClick={atualizar}
+
+                    disabled={carregando}
+
+                >
+
+                    {
+                        carregando
+
+                        ?
+
+                        "Atualizando..."
+
+                        :
+
+                        "Atualizar"
+
+                    }
+
+
+                </button>
+
+
+
+
+
+
+
+                <div className="user-name">
+
+
+                    👤 {usuario?.username || "admin"}
+
+
+                </div>
+
+
+
+
+
+                <button
+
+                    className="btn-logout"
+
+                    onClick={onLogout}
+
+                >
+
+                    🚪 Sair
+
+
+                </button>
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </header>
+
 
     );
 
-
-
-    return () => clearInterval(timer);
-
-
-
-  },[]);
-
-
-
-
-
-
-
-
-  return (
-
-
-    <header className="header">
-
-
-
-
-
-      <div className="logo-area">
-
-
-        <div className="logo">
-
-
-          🎯 SureBet<span>Web</span>
-
-
-        </div>
-
-
-
-
-
-        <div className={`status ${status}`}>
-
-
-          <span className="dot"></span>
-
-
-          {
-
-
-            status === "online"
-
-            ?
-
-            "API Online"
-
-            :
-
-            "API Offline"
-
-
-          }
-
-
-        </div>
-
-
-
-      </div>
-
-
-
-
-
-
-
-
-      <div className="header-right">
-
-
-
-
-
-        <div className="header-info">
-
-
-          🕒
-
-
-          <span>
-
-
-            Atualizado há {segundos}s
-
-
-          </span>
-
-
-        </div>
-
-
-
-
-
-
-
-
-        <div className="header-info success">
-
-
-          ✨
-
-
-          <span>
-
-
-            {novasSurebets} nova(s)
-
-
-          </span>
-
-
-        </div>
-
-
-
-
-
-
-
-
-        <button
-
-
-          className="btn-refresh"
-
-
-          onClick={atualizar}
-
-
-          disabled={carregando}
-
-
-        >
-
-
-          {
-
-
-            carregando
-
-            ?
-
-            "Atualizando..."
-
-            :
-
-            "Atualizar"
-
-
-          }
-
-
-        </button>
-
-
-
-
-
-      </div>
-
-
-
-
-
-    </header>
-
-
-  );
-
-
 }
+
 
 
 export default Header;
