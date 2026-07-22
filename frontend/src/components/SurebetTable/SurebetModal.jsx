@@ -496,117 +496,29 @@ Abrir Casa ↗
 
 <div className="bet-info">
 
+    <div>
 
+        <span>Casa</span>
 
+        <strong>{aposta.casa}</strong>
 
+    </div>
 
-<div>
+    <div>
 
+        <span>Seleção</span>
 
-<span>
+        <strong>{nomeSelecao(aposta)}</strong>
 
-Seleção
+    </div>
 
-</span>
+    <div>
 
+        <span>Odd</span>
 
-<strong>
+        <strong>{aposta.odd}</strong>
 
-{nomeSelecao(aposta)}
-
-</strong>
-
-
-</div>
-
-
-
-
-
-
-
-<div>
-
-
-<span>
-
-Odd
-
-</span>
-
-
-<strong>
-
-{aposta.odd}
-
-</strong>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div>
-
-
-<span>
-
-Apostar
-
-</span>
-
-
-<strong>
-
-{formatarMoeda(
-
-aposta.valor_aposta
-
-)}
-
-</strong>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div>
-
-
-<span>
-
-Retorno
-
-</span>
-
-
-<strong>
-
-{formatarMoeda(
-
-aposta.retorno
-
-)}
-
-</strong>
-
-
-</div>
-
-
-
-
+    </div>
 
 </div>
 

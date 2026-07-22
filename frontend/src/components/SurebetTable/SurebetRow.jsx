@@ -582,215 +582,35 @@ function nomeMercado(){
 
 
 
-                {
-
-                    oportunidade.linha != null &&
-
-
-                    <div className="linha">
-
-
-                        Linha {oportunidade.linha}
-
-
-                    </div>
-
-
-                }
+                
 
 
             </td>
-
-
-
-
-
-
+       
 
 
 
             <td>
 
+    <span className="lucro-badge">
 
-
-                {
-
-                    apostas.length === 0 ?
-
-
-                    (
-
-                        <span>
-
-                            Sem apostas
-
-                        </span>
-
-                    )
-
-                    :
-
-
-                    apostas.map((aposta,index)=>(
-
-
-
-                        <div
-
-    className="casa-item"
-
-    key={aposta.id || index}
-
->
-
-
-    <div className="bookmaker-area">
-
-    <a
-        href={obterLinkBookmaker(aposta.casa) || "#"}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bookmaker-link"
-        onClick={(e)=>e.stopPropagation()}
-    >
-        🟢 {aposta.casa} ↗
-    </a>
-
-
-    {
-        obterLinkBookmaker(aposta.casa) &&
-
-        <button
-            className="abrir-btn"
-            onClick={(e)=>{
-
-                e.stopPropagation();
-
-                window.open(
-                    obterLinkBookmaker(aposta.casa),
-                    "_blank"
-                );
-
-            }}
-        >
-
-            Abrir
-
-        </button>
-
-    }
-
-
-</div>
-
-
-
-    <span>
-
-        {nomeSelecao(aposta)}
+        +{formatarLucro()}%
 
     </span>
 
+</td>
 
+<td>
 
-    <span>
+    {moeda(oportunidade.investimento)}
 
-        Odd {aposta.odd}
+</td>
 
-    </span>
-    
-    <span className="valor-aposta">
+<td>
 
-    💵 Apostar:
+    {moeda(oportunidade.retorno_final)}
 
-    {" "}
-
-    {moeda(aposta.valor_aposta)}
-
-</span>
-    
-    <span className="retorno-aposta">
-
-    💰 Retorno:
-
-    {" "}
-
-    {moeda(aposta.retorno)}
-
-</span>
-
-</div>
-
-
-                    ))
-
-                }
-
-
-
-            </td>
-
-
-
-
-
-
-
-
-
-            <td>
-
-
-                <span className="lucro-badge">
-
-
-                    +{formatarLucro()}%
-
-
-                </span>
-
-
-            </td>
-
-
-
-
-
-
-
-
-
-            <td>
-
-
-                {moeda(
-
-                    oportunidade.investimento
-
-                )}
-
-
-            </td>
-
-
-
-
-
-
-
-
-
-            <td>
-
-
-                {moeda(
-
-                    oportunidade.retorno_final
-
-                )}
-
-
-            </td>
+</td>
 
 
 

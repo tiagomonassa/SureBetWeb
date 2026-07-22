@@ -3,21 +3,19 @@ import "./Dashboard.css";
 import { useSurebets } from "../../context/SurebetContext";
 
 
-
 function Dashboard(){
 
 
     const {
 
-        oportunidadesFiltradas = [],
+    oportunidadesFiltradas = [],
 
-        banca = 1000
+    dashboard = {}
 
-    } = useSurebets();
-
-
+} = useSurebets();
 
 
+console.log("DASHBOARD ATUAL:", dashboard);
 
 
     const total = oportunidadesFiltradas.length;
@@ -26,29 +24,19 @@ function Dashboard(){
 
 
 
-
-
     const melhorLucro = total > 0
-
 
         ? Math.max(
 
-
             ...oportunidadesFiltradas.map(
 
-
                 item => Number(
-
                     item.lucro_percentual || 0
-
                 )
-
 
             )
 
-
         )
-
 
         : 0;
 
@@ -57,9 +45,12 @@ function Dashboard(){
 
 
 
+    // PEGA A BANCA ATUAL DO BACKEND
 
+    const investimento = Number(
+    dashboard.valor_total ?? 0
+    );
 
-    const investimento = Number(banca);
 
 
 
@@ -67,22 +58,16 @@ function Dashboard(){
 
     const lucro =
 
-        investimento *
+    investimento *
 
-        (melhorLucro / 100);
-
-
+    (melhorLucro / 100);
 
 
+const retorno =
 
+    investimento +
 
-    const retorno =
-
-        investimento +
-
-        lucro;
-
-
+    lucro;
 
 
 
@@ -130,7 +115,6 @@ function Dashboard(){
 
             <div className="dashboard-card">
 
-
                 <span>
 
                     🎯 Surebets Encontradas
@@ -146,6 +130,7 @@ function Dashboard(){
 
 
             </div>
+
 
 
 
@@ -178,6 +163,8 @@ function Dashboard(){
 
 
 
+
+
             <div className="dashboard-card">
 
 
@@ -196,6 +183,8 @@ function Dashboard(){
 
 
             </div>
+
+
 
 
 
@@ -228,6 +217,8 @@ function Dashboard(){
 
 
 
+
+
             <div className="dashboard-card lucro">
 
 
@@ -251,6 +242,7 @@ function Dashboard(){
 
 
 
+
         </div>
 
 
@@ -258,7 +250,6 @@ function Dashboard(){
 
 
 }
-
 
 
 export default Dashboard;

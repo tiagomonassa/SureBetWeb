@@ -7,11 +7,10 @@ import {
 
 
 import {
-
     buscarOportunidades,
     buscarDashboard,
-    buscarEsportes
-
+    buscarEsportes,
+    buscarConfiguracao
 } from "../services/api";
 
 
@@ -285,16 +284,6 @@ export function SurebetProvider({children}){
     },[mercados]);
 
 
-
-
-
-
-
-
-
-
-
-
     async function carregarDados(){
 
 
@@ -310,27 +299,19 @@ export function SurebetProvider({children}){
 
 
             const [
-
                 oportunidadesData,
-
                 dashboardData,
-
-                esportesData
-
-
+                esportesData,
+                configData
             ] = await Promise.all([
-
-
 
                 buscarOportunidades(),
 
-
-
                 buscarDashboard(),
 
+                buscarEsportes(),
 
-
-                buscarEsportes()
+                buscarConfiguracao()
 
 
 
@@ -399,16 +380,42 @@ export function SurebetProvider({children}){
 
             setOportunidades(lista);
 
+            console.log("OPORTUNIDADES RECEBIDAS:", lista);
+
 
 
 
 
 
             setDashboard(
+    dashboardData || {}
+);
 
-                dashboardData || {}
 
-            );
+// ==================================
+// ATUALIZA CONFIGURAÇÃO DA BANCA
+// VINDO DO BANCO
+// ==================================
+
+if (configData) {
+
+
+    setBanca(
+        configData.valor_total
+    );
+
+
+    setLucroMinimo(
+        configData.lucro_minimo
+    );
+
+
+    setIntervalo(
+        configData.intervalo_scan
+    );
+
+
+}
 
 
 
@@ -702,6 +709,8 @@ export function SurebetProvider({children}){
 
 
         setOportunidadesFiltradas(resultado);
+        
+        console.log("FILTRADAS:", resultado);
 
 
 

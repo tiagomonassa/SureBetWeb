@@ -56,63 +56,23 @@ function SurebetTable({ oportunidades = [] }) {
 
                     <thead>
 
+<tr>
 
-                        <tr>
+    <th>Evento</th>
 
+    <th>Mercado</th>
 
-                            <th>
+    <th>Lucro</th>
 
-                                Evento
+    <th>Investimento</th>
 
-                            </th>
+    <th>Retorno</th>
 
+    <th>Ações</th>
 
-                            <th>
+</tr>
 
-                                Mercado
-
-                            </th>
-
-
-                            <th>
-
-                                Casas / Odds
-
-                            </th>
-
-
-                            <th>
-
-                                Lucro
-
-                            </th>
-
-
-                            <th>
-
-                                Investimento
-
-                            </th>
-
-
-                            <th>
-
-                                Retorno
-
-                            </th>
-
-
-                            <th>
-
-                                Ações
-
-                            </th>
-
-
-                        </tr>
-
-
-                    </thead>
+</thead>
 
 
 
@@ -132,7 +92,7 @@ function SurebetTable({ oportunidades = [] }) {
 
                                     <td
 
-                                        colSpan="7"
+                                        colSpan="5"
 
                                         className="empty-table"
 

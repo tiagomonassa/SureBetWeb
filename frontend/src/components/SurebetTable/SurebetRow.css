@@ -20,7 +20,12 @@
 
     padding:18px 16px;
 
-    vertical-align:middle;
+    vertical-align:top;
+}
+
+.surebet-row td:first-child{
+
+    text-align:left;
 
 }
 
