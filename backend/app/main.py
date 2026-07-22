@@ -20,6 +20,7 @@ from app.routes.oportunidades import router as oportunidades_router
 from app.routes.scanner import router as scanner_router
 from app.routes.sports import router as sports_router
 from app.routes.config import router as config_router
+from app.routes.auth import router as auth_router
 
 
 
@@ -113,6 +114,9 @@ app.include_router(scanner_router)
 app.include_router(sports_router)
 
 app.include_router(config_router)
+
+app.include_router(auth_router)
+
 
 
 
