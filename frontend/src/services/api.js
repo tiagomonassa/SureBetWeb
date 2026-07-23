@@ -5,7 +5,7 @@
 
 const API_URL =
     import.meta.env.VITE_API_URL ||
-    "https://surebetweb.onrender.com";
+    "https://surebets-ve2i.onrender.com/";
 
 console.log("API_URL USADA:", API_URL);
 
