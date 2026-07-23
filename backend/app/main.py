@@ -21,6 +21,7 @@ from app.routes.scanner import router as scanner_router
 from app.routes.sports import router as sports_router
 from app.routes.config import router as config_router
 from app.routes.auth import router as auth_router
+from app.services.bootstrap import criar_admin_padrao
 
 
 
@@ -52,6 +53,9 @@ app = FastAPI(
 def iniciar_sistema():
 
     print("Iniciando SureBetWeb...")
+
+    # Cria o administrador padrão caso ainda não exista
+    criar_admin_padrao()
 
     try:
 
