@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import {
+    BrowserRouter
+} from "react-router-dom";
+
+
 import App from "./App.jsx";
 
 import "./index.css";
 
 
 import {
-
-  SurebetProvider
-
+    SurebetProvider
 } from "./context/SurebetContext.jsx";
 
 
@@ -18,24 +21,30 @@ import {
 
 ReactDOM.createRoot(
 
-  document.getElementById("root")
+    document.getElementById("root")
 
 ).render(
 
 
-  <React.StrictMode>
+    <React.StrictMode>
 
 
-    <SurebetProvider>
+        <BrowserRouter>
 
 
-      <App />
+            <SurebetProvider>
 
 
-    </SurebetProvider>
+                <App />
 
 
-  </React.StrictMode>
+            </SurebetProvider>
+
+
+        </BrowserRouter>
+
+
+    </React.StrictMode>
 
 
 );

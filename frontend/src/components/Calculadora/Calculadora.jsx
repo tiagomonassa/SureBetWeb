@@ -50,6 +50,7 @@ function Calculadora() {
 
 
 
+
     if(soma === 0){
 
       return;
@@ -67,13 +68,19 @@ function Calculadora() {
 
 
 
+
     const aposta1 =
 
       o1 > 0
 
-      ? investimento / (o1 * soma)
+      ?
 
-      : 0;
+      investimento / (o1 * soma)
+
+      :
+
+      0;
+
 
 
 
@@ -82,9 +89,14 @@ function Calculadora() {
 
       o2 > 0
 
-      ? investimento / (o2 * soma)
+      ?
 
-      : 0;
+      investimento / (o2 * soma)
+
+      :
+
+      0;
+
 
 
 
@@ -93,9 +105,13 @@ function Calculadora() {
 
       o3 > 0
 
-      ? investimento / (o3 * soma)
+      ?
 
-      : 0;
+      investimento / (o3 * soma)
+
+      :
+
+      0;
 
 
 
@@ -114,6 +130,12 @@ function Calculadora() {
 
 
       aposta3,
+
+
+      retorno:
+
+        investimento * (lucro / 100),
+
 
 
       isSurebet:
@@ -138,6 +160,7 @@ return (
 <section className="calculadora-container">
 
 
+
 <div className="calc-header">
 
 <h2>
@@ -160,7 +183,10 @@ Análise manual
 
 
 
+
+
 <div className="calc-grid">
+
 
 
 <div className="calc-card">
@@ -184,6 +210,8 @@ placeholder="Ex: 2.10"
 />
 
 </div>
+
+
 
 
 
@@ -215,6 +243,8 @@ placeholder="Ex: 2.20"
 
 
 
+
+
 <div className="calc-card">
 
 <label>
@@ -236,6 +266,8 @@ placeholder="Opcional"
 />
 
 </div>
+
+
 
 
 
@@ -268,6 +300,9 @@ e=>setValor(e.target.value)
 
 
 
+
+
+
 <button
 
 className="calculate-btn"
@@ -279,6 +314,8 @@ onClick={calcularSurebet}
 Calcular Surebet
 
 </button>
+
+
 
 
 
@@ -320,6 +357,8 @@ Resultado da análise
 
 
 
+
+
 <div className="status">
 
 
@@ -345,6 +384,9 @@ resultado.isSurebet
 
 
 
+
+
+
 <div className="profit-value">
 
 
@@ -357,6 +399,9 @@ Lucro:
 
 
 </div>
+
+
+
 
 
 
@@ -404,10 +449,83 @@ R$ {resultado.aposta3.toFixed(2)}
 
 
 
+
+
+
+<div className="return-value">
+
+
+Retorno:
+
+
+{" "}
+
+
+
+<span
+
+className={
+
+resultado.retorno >= 0
+
+?
+
+"positive-return"
+
+:
+
+"negative-return"
+
+}
+
+>
+
+
+{
+
+resultado.retorno >= 0
+
+?
+
+"+ "
+
+:
+
+"- "
+
+}
+
+
+
+R$ {
+
+Math.abs(resultado.retorno)
+
+.toFixed(2)
+
+.replace(".",",")
+
+}
+
+
+
+</span>
+
+
+
+</div>
+
+
+
+
+
 </div>
 
 
 )}
+
+
+
 
 
 

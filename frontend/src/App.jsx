@@ -1,59 +1,116 @@
 // ==========================================
 // APP
 // SureBetWeb Premium
-// Controle de acesso
+// Controle de acesso + Rotas
 // ==========================================
 
-import { useState } from "react";
+
+import {
+    useState
+} from "react";
+
+
+import {
+    Routes,
+    Route
+} from "react-router-dom";
+
+
 
 import LoginPage from "./pages/LoginPage";
+
 import RegisterPage from "./pages/RegisterPage";
+
 import DashboardPage from "./pages/DashboardPage";
 
+import CalculadoraPage from "./pages/CalculadoraPage";
+
+import MercadosPage from "./pages/MercadosPage";
+
+import ConfigPage from "./pages/ConfigPage";
+
+
+
 import Header from "./components/Header/Header";
+
+import Sidebar from "./components/Sidebar/Sidebar";
+
+
 
 import {
     getToken,
     logout
 } from "./services/auth";
 
+
+
 import "./App.css";
+
+
 
 
 
 function App() {
 
-    const [
-        autenticado,
-        setAutenticado
-    ] = useState(
-        !!getToken()
-    );
 
     const [
+
+        autenticado,
+
+        setAutenticado
+
+    ] = useState(
+
+        !!getToken()
+
+    );
+
+
+
+    const [
+
         tela,
+
         setTela
+
     ] = useState("login");
 
 
 
-    function entrar() {
+
+
+
+
+    function entrar(){
+
 
         setAutenticado(true);
 
+
     }
 
 
 
-    function sair() {
+
+
+
+    function sair(){
+
 
         logout();
 
+
         setAutenticado(false);
+
 
         setTela("login");
 
+
     }
+
+
+
+
 
 
 
@@ -61,45 +118,80 @@ function App() {
     // LOGIN / CADASTRO
     // ============================
 
-    if (!autenticado) {
 
-        if (tela === "register") {
+    if(!autenticado){
+
+
+
+        if(tela === "register"){
+
 
             return (
 
+
                 <RegisterPage
 
-                    voltar={() => setTela("login")}
+                    voltar={
+
+                        () => setTela("login")
+
+                    }
 
                 />
 
+
             );
+
 
         }
 
+
+
+
+
         return (
+
 
             <LoginPage
 
                 onLogin={entrar}
 
-                criarConta={() => setTela("register")}
+
+                criarConta={
+
+                    () => setTela("register")
+
+                }
+
 
             />
 
+
         );
+
 
     }
 
 
 
+
+
+
+
+
+
     // ============================
-    // SISTEMA LOGADO
+    // SISTEMA
     // ============================
+
 
     return (
 
+
+
         <div className="app">
+
+
 
             <Header
 
@@ -107,20 +199,124 @@ function App() {
 
             />
 
+
+
+
+
             <div className="content">
+
+
+
+
+
+                <Sidebar />
+
+
+
+
+
+
 
                 <main className="main">
 
-                    <DashboardPage />
+
+
+
+
+                    <Routes>
+
+
+
+                        <Route
+
+                            path="/"
+
+                            element={
+
+                                <DashboardPage />
+
+                            }
+
+                        />
+
+
+
+
+
+                        <Route
+
+                            path="/calculadora"
+
+                            element={
+
+                                <CalculadoraPage />
+
+                            }
+
+                        />
+
+
+
+
+
+                        <Route
+
+                            path="/mercados"
+
+                            element={
+
+                                <MercadosPage />
+
+                            }
+
+                        />
+
+
+
+
+
+                        <Route
+
+                            path="/config"
+
+                            element={
+
+                                <ConfigPage />
+
+                            }
+
+                        />
+
+
+
+
+
+                    </Routes>
+
+
+
+
 
                 </main>
 
+
+
+
+
             </div>
+
+
+
+
 
         </div>
 
+
     );
 
+
 }
+
+
 
 export default App;
