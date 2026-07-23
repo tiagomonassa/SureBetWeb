@@ -500,3 +500,35 @@
 
 
 }
+
+@media (max-width:600px){
+
+    .dashboard-cards{
+
+        gap:14px;
+
+    }
+
+    .dashboard-card{
+
+        min-height:105px;
+
+        padding:18px;
+
+        border-radius:16px;
+
+    }
+
+    .dashboard-card span{
+
+        font-size:12px;
+
+    }
+
+    .dashboard-card strong{
+
+        font-size:24px;
+
+    }
+
+}

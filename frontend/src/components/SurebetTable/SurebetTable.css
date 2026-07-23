@@ -450,27 +450,53 @@
 
 
 /* =========================================
-   RESPONSIVO
+   MOBILE AJUSTE
 ========================================= */
 
-@media(max-width:900px){
+@media(max-width:600px){
 
 
     .table-container{
 
+        border-radius:16px;
 
         overflow-x:auto;
-
 
     }
 
 
-
     .surebet-table{
 
+        min-width:750px;
 
-        min-width:900px;
+    }
 
+
+    .surebet-table th{
+
+        height:50px;
+
+        padding:0 14px;
+
+        font-size:12px;
+
+    }
+
+
+    .surebet-table td{
+
+        padding:14px;
+
+        font-size:13px;
+
+    }
+
+
+    .table-action{
+
+        padding:8px 12px;
+
+        white-space:nowrap;
 
     }
 

@@ -1,0 +1,127 @@
+/* =================================
+   HEADER MOBILE
+================================= */
+
+@media (max-width: 900px) {
+
+    .header {
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        gap: 14px;
+
+        height: auto;
+        min-height: 230px;
+
+        padding: 18px;
+
+    }
+
+
+    /* ===========================
+       TOPO
+    =========================== */
+
+    .header-user {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        margin: 0;
+
+        padding: 0;
+
+        border: none;
+
+    }
+
+
+    /* ===========================
+       LOGO
+    =========================== */
+
+    .brand-center {
+
+        position: static;
+
+        transform: none;
+
+        display: flex;
+
+        justify-content: center;
+
+        width: 100%;
+
+    }
+
+    .football-animation {
+
+        display: none;
+
+    }
+
+
+    /* ===========================
+       STATUS API
+    =========================== */
+
+    .header-left {
+
+        width: 100%;
+
+        justify-content: center;
+
+        display: flex;
+
+    }
+
+
+    /* ===========================
+       INFORMAÇÕES
+    =========================== */
+
+    .header-right {
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 12px;
+
+    }
+
+
+    .header-info {
+
+        text-align: center;
+
+    }
+
+
+    /* ===========================
+       BOTÃO
+    =========================== */
+
+    .btn-refresh {
+
+        width: 100%;
+
+        max-width: 320px;
+
+    }
+
+}

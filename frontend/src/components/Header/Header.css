@@ -2,49 +2,31 @@
 HEADER PREMIUM ESPORTIVO
 ================================= */
 
-
 .header{
 
+    height:82px;
 
-height:82px;
+    width:100%;
 
-width:100%;
+    background:
+    rgba(13,17,23,.92);
 
-background:
+    border-bottom:
+    1px solid var(--border);
 
-rgba(13,17,23,.92);
+    display:grid;
 
+    grid-template-columns:220px 1fr auto;
 
-border-bottom:
+    align-items:center;
 
-1px solid var(--border);
+    padding:0 28px;
 
+    position:relative;
 
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:space-between;
-
-
-padding:0 28px;
-
-
-position:relative;
-
-
-overflow:hidden;
-
-
-backdrop-filter:blur(12px);
-
+    overflow:hidden;
 
 }
-
-
-
 
 
 
@@ -55,42 +37,27 @@ ESQUERDA
 
 .header-left{
 
+    display:flex;
 
-width:220px;
-
-
-display:flex;
-
-
-align-items:center;
-
+    align-items:center;
 
 }
 
 
 
-
-
 .status{
 
+    display:flex;
 
-display:flex;
+    align-items:center;
 
+    gap:8px;
 
-align-items:center;
+    font-size:13px;
 
+    font-weight:600;
 
-gap:8px;
-
-
-font-size:13px;
-
-
-font-weight:600;
-
-
-color:#aaa;
-
+    color:#aaa;
 
 }
 
@@ -98,50 +65,33 @@ color:#aaa;
 
 .dot{
 
+    width:9px;
 
-width:9px;
+    height:9px;
 
-height:9px;
-
-border-radius:50%;
-
+    border-radius:50%;
 
 }
-
 
 
 
 .status.online .dot{
 
+    background:#00e676;
 
-background:#00e676;
+    box-shadow:0 0 15px #00e676;
 
-
-box-shadow:
-
-0 0 15px #00e676;
-
-
-animation:pulse 1.5s infinite;
-
+    animation:pulse 1.5s infinite;
 
 }
-
 
 
 
 .status.offline .dot{
 
-
-background:#ff304f;
-
+    background:#ff304f;
 
 }
-
-
-
-
-
 
 
 
@@ -152,50 +102,31 @@ CENTRO
 
 .brand-center{
 
+    position:absolute;
 
-position:absolute;
+    left:50%;
 
+    transform:translateX(-50%);
 
-left:50%;
+    display:flex;
 
+    align-items:center;
 
-transform:translateX(-50%);
+    justify-content:center;
 
-
-display:flex;
-
-
-flex-direction:column;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-z-index:2;
-
+    z-index:2;
 
 }
 
 
 
-
 .logo{
 
+    font-size:24px;
 
-font-size:24px;
+    font-weight:800;
 
-
-font-weight:800;
-
-
-letter-spacing:.5px;
-
-
-color:white;
-
+    color:white;
 
 }
 
@@ -203,49 +134,27 @@ color:white;
 
 .logo span{
 
+    color:#00e676;
 
-color:#00e676;
-
-
-text-shadow:
-
-0 0 18px #00e676;
-
+    text-shadow:0 0 18px #00e676;
 
 }
 
-
-
-
-
-
-
-/* BOLA ANIMADA */
 
 
 .football-animation{
 
+    position:absolute;
 
-position:absolute;
+    font-size:80px;
 
+    opacity:.10;
 
-font-size:80px;
+    animation:ballMove 6s linear infinite;
 
-
-opacity:.10;
-
-
-animation:
-
-ballMove 6s linear infinite;
-
-
-z-index:-1;
-
+    z-index:-1;
 
 }
-
-
 
 
 
@@ -254,238 +163,168 @@ z-index:-1;
 
 0%{
 
-
-transform:
-
-translateX(-180px)
-
-rotate(0deg);
-
+transform:translateX(-180px) rotate(0deg);
 
 }
-
 
 
 50%{
 
-
-transform:
-
-translateX(180px)
-
-rotate(180deg);
-
+transform:translateX(180px) rotate(180deg);
 
 }
-
 
 
 100%{
 
-
-transform:
-
-translateX(-180px)
-
-rotate(360deg);
-
+transform:translateX(-180px) rotate(360deg);
 
 }
 
 
-
 }
-
-
-
 
 
 
 
 /* ===============================
-DIREITA
+INFORMAÇÕES
 =============================== */
 
 
 .header-right{
 
+    display:flex;
 
-display:flex;
+    align-items:center;
 
+    justify-self:end;
 
-align-items:center;
-
-
-gap:18px;
-
+    gap:25px;
 
 }
-
-
 
 
 
 .header-info{
 
+    font-size:13px;
 
-font-size:13px;
-
-
-color:#9aa4b2;
-
+    color:#9aa4b2;
 
 }
-
-
 
 
 
 .header-info.success{
 
-
-color:#00e676;
-
+    color:#00e676;
 
 }
 
 
 
 
-
+/* ===============================
+ATUALIZAR
+=============================== */
 
 
 .btn-refresh{
 
+    background:
 
-background:
+    linear-gradient(
 
-linear-gradient(
+        135deg,
 
-135deg,
+        #00e676,
 
-#00e676,
+        #00b248
 
-#00b248
-
-);
-
-
-border:none;
+    );
 
 
-color:white;
+    border:none;
 
+    color:white;
 
-padding:
+    padding:10px 18px;
 
-10px 18px;
+    border-radius:10px;
 
+    font-weight:700;
 
-border-radius:10px;
-
-
-font-weight:700;
-
-
-cursor:pointer;
-
-
-box-shadow:
-
-0 0 20px rgba(0,230,118,.4);
-
+    cursor:pointer;
 
 }
 
 
 
+/* ===============================
+USUARIO
+=============================== */
 
 
-.btn-refresh:hover{
+.header-user{
 
+    display:flex;
 
-transform:translateY(-2px);
+    align-items:center;
 
+    gap:14px;
+
+    padding-left:10px;
+
+    border-left:1px solid rgba(255,255,255,.15);
+
+    position:relative;
+
+    z-index:5;
 
 }
-
-
-
 
 
 
 .user-name{
 
+    color:white;
 
-color:white;
+    font-weight:600;
 
-
-font-weight:600;
-
-
-font-size:14px;
-
+    font-size:14px;
 
 }
-
-
-
-
 
 
 
 .btn-logout{
 
+    background:#ff304f;
 
-background:#ff304f;
+    color:white;
 
+    border:none;
 
-color:white;
+    padding:9px 16px;
 
+    border-radius:10px;
 
-border:none;
+    font-weight:700;
 
-
-padding:
-
-9px 16px;
-
-
-border-radius:10px;
-
-
-font-weight:700;
-
-
-cursor:pointer;
-
-
-}
-
-
-
-.btn-logout:hover{
-
-
-box-shadow:
-
-0 0 20px rgba(255,48,79,.6);
-
-
-transform:translateY(-2px);
-
+    cursor:pointer;
 
 }
 
 
 
 
-
-
+/* ===============================
+ANIMAÇÕES
+=============================== */
 
 
 @keyframes pulse{
-
 
 50%{
 
@@ -495,61 +334,13 @@ opacity:.5;
 
 }
 
-
 }
 
 
 
 
-
-@media(max-width:900px){
-
-
-.header{
+/* =================================
+MOBILE
+================================= */
 
 
-height:auto;
-
-
-flex-direction:column;
-
-
-gap:15px;
-
-
-padding:20px;
-
-
-}
-
-
-
-.brand-center{
-
-
-position:relative;
-
-
-left:auto;
-
-
-transform:none;
-
-
-}
-
-
-
-.header-right{
-
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-
-}
-
-
-
-}

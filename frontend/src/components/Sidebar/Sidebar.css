@@ -576,24 +576,67 @@
 
 
 /* =================================
-   RESPONSIVO
+   SIDEBAR MOBILE
 ================================= */
 
+@media (max-width: 768px) {
 
-@media(max-width:768px){
+    .sidebar {
 
+        width: 100%;
 
-.sidebar{
+        min-height: auto;
 
+        padding: 12px 10px;
 
-width:100%;
+        border-right: none;
 
+        border-bottom: 1px solid #242c38;
+    }
 
-min-height:auto;
+    .sidebar::after {
 
+        display: none;
 
-}
+    }
 
+    .sidebar-title {
 
+        display: none;
+
+    }
+
+    .menu {
+
+        flex-direction: row;
+
+        gap: 10px;
+
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+
+        -ms-overflow-style: none;
+    }
+
+    .menu::-webkit-scrollbar {
+
+        display: none;
+
+    }
+
+    .menu-item {
+
+        flex: 0 0 auto;
+
+        min-width: 180px;
+
+        justify-content: center;
+
+        white-space: nowrap;
+
+    }
 
 }

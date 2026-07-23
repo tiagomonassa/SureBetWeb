@@ -5,6 +5,7 @@ import {
 
 
 import "./Header.css";
+import "./HeaderMobile.css";
 
 
 import {
@@ -260,37 +261,24 @@ function Header({ onLogout }) {
             {/* DIREITA */}
 
 
-            <div className="header-right">
+            {/* INFORMAÇÕES */}
 
+            <div className="header-right">
 
 
                 <div className="header-info">
 
-
-                    🕒
-
-                    Atualizado há {segundos}s
-
+                    🕒 Atualizado há {segundos}s
 
                 </div>
-
-
-
 
 
 
                 <div className="header-info success">
 
-
-                    ✨
-
-                    {novasSurebets} nova(s)
-
+                    ✨ {novasSurebets} nova(s)
 
                 </div>
-
-
-
 
 
 
@@ -304,37 +292,26 @@ function Header({ onLogout }) {
 
                 >
 
-                    {
-                        carregando
-
-                        ?
-
-                        "Atualizando..."
-
-                        :
-
-                        "Atualizar"
-
-                    }
-
+                    {carregando ? "Atualizando..." : "Atualizar"}
 
                 </button>
 
 
+            </div>
 
 
 
+
+            {/* USUARIO */}
+
+            <div className="header-user">
 
 
                 <div className="user-name">
 
-
                     👤 {usuario?.username || "admin"}
 
-
                 </div>
-
-
 
 
 
@@ -348,10 +325,7 @@ function Header({ onLogout }) {
 
                     🚪 Sair
 
-
                 </button>
-
-
 
 
             </div>

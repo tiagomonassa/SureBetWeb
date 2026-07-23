@@ -450,3 +450,50 @@
 
 
 }
+
+/* =========================================
+   AJUSTES MOBILE PREMIUM
+========================================= */
+
+@media(max-width:600px){
+
+    .filtros-premium{
+
+        padding:16px;
+
+        gap:14px;
+
+        border-radius:16px;
+
+    }
+
+
+    .filtro-item{
+
+        gap:6px;
+
+    }
+
+
+    .filtro-item label{
+
+        font-size:12px;
+
+    }
+
+
+    .filtro-item input,
+
+    .filtro-item select{
+
+        height:50px;
+
+        font-size:15px;
+
+        padding:0 14px;
+
+        border-radius:14px;
+
+    }
+
+}
