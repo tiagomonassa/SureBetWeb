@@ -81,7 +81,80 @@ export async function login(
 }
 
 
+// ==========================================
+// CADASTRO
+// ==========================================
 
+
+export async function register(
+
+    username,
+
+    email,
+
+    senha,
+
+    codigo_convite
+
+) {
+
+
+    const response = await fetch(
+
+        `${API_URL}/auth/register`,
+
+        {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                username,
+
+                email,
+
+                senha,
+
+                codigo_convite
+
+            })
+
+        }
+
+    );
+
+
+
+    const dados = await response.json();
+
+
+
+    if(!response.ok){
+
+
+        throw new Error(
+
+            dados.detail ||
+
+            "Erro ao criar conta"
+
+        );
+
+
+    }
+
+
+
+    return dados;
+
+
+}
 
 
 // ==========================================

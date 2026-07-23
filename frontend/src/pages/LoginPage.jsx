@@ -10,7 +10,13 @@ import "./LoginPage.css";
 import { login } from "../services/auth";
 
 
-function LoginPage({ onLogin }) {
+function LoginPage({
+
+    onLogin,
+
+    criarConta
+
+}) {
 
 
     const [username, setUsername] = useState("");
@@ -28,54 +34,42 @@ function LoginPage({ onLogin }) {
 
         e.preventDefault();
 
-
         setErro("");
 
         setCarregando(true);
 
-
         try {
-
 
             const resposta = await login(
                 username,
                 password
             );
 
-
             localStorage.setItem(
                 "token",
                 resposta.access_token
             );
-
 
             localStorage.setItem(
                 "usuario",
                 JSON.stringify(resposta.usuario)
             );
 
-
-            if(onLogin){
+            if (onLogin) {
 
                 onLogin(resposta);
 
             }
 
-
-
-        } catch(error) {
-
+        } catch (error) {
 
             setErro(
                 "Usuário ou senha inválidos"
             );
 
-
         } finally {
 
-
             setCarregando(false);
-
 
         }
 
@@ -87,23 +81,15 @@ function LoginPage({ onLogin }) {
 
     return (
 
-
         <div className="login-page">
-
 
             <div className="login-card">
 
-
-
                 <div className="login-logo">
-
 
                     🎯
 
-
                 </div>
-
-
 
                 <h1>
 
@@ -111,20 +97,13 @@ function LoginPage({ onLogin }) {
 
                 </h1>
 
-
-
                 <p>
 
                     Acesso privado ao sistema
 
                 </p>
 
-
-
-
-
                 <form onSubmit={handleLogin}>
-
 
                     <input
 
@@ -140,9 +119,6 @@ function LoginPage({ onLogin }) {
 
                     />
 
-
-
-
                     <input
 
                         type="password"
@@ -157,10 +133,8 @@ function LoginPage({ onLogin }) {
 
                     />
 
-
-
-
                     {
+
                         erro &&
 
                         <div className="login-error">
@@ -171,9 +145,6 @@ function LoginPage({ onLogin }) {
 
                     }
 
-
-
-
                     <button
 
                         type="submit"
@@ -182,40 +153,55 @@ function LoginPage({ onLogin }) {
 
                     >
 
-
                         {
+
                             carregando
 
-                            ?
+                                ?
 
-                            "Entrando..."
+                                "Entrando..."
 
-                            :
+                                :
 
-                            "Entrar"
+                                "Entrar"
 
                         }
 
-
                     </button>
-
-
 
                 </form>
 
 
+                <div className="login-footer">
+
+                    <p>
+
+                        Não possui uma conta?
+
+                    </p>
+
+                    <button
+
+                        className="btn-criar-conta"
+
+                        type="button"
+
+                        onClick={criarConta}
+
+                    >
+
+                        Criar Conta
+
+                    </button>
+
+                </div>
 
             </div>
 
-
-
         </div>
-
 
     );
 
 }
-
-
 
 export default LoginPage;

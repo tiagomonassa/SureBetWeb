@@ -4,100 +4,78 @@
 // Controle de acesso
 // ==========================================
 
-
-import {
-    useState
-} from "react";
-
+import { useState } from "react";
 
 import LoginPage from "./pages/LoginPage";
-
-
+import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
 
-
 import Header from "./components/Header/Header";
-
-
 
 import {
     getToken,
     logout
 } from "./services/auth";
 
-
-
 import "./App.css";
 
 
 
-
-
-
-function App(){
-
-
+function App() {
 
     const [
-
         autenticado,
-
         setAutenticado
-
     ] = useState(
-
         !!getToken()
-
     );
 
+    const [
+        tela,
+        setTela
+    ] = useState("login");
 
 
 
-
-
-
-    function entrar(){
-
+    function entrar() {
 
         setAutenticado(true);
 
-
     }
 
 
 
-
-
-
-
-
-
-    function sair(){
-
+    function sair() {
 
         logout();
 
-
         setAutenticado(false);
 
+        setTela("login");
 
     }
 
 
 
-
-
-
-
-
-
     // ============================
-    // LOGIN
+    // LOGIN / CADASTRO
     // ============================
 
+    if (!autenticado) {
 
-    if(!autenticado){
+        if (tela === "register") {
 
+            return (
+
+                <RegisterPage
+
+                    voltar={() => setTela("login")}
+
+                />
+
+            );
+
+        }
 
         return (
 
@@ -105,18 +83,13 @@ function App(){
 
                 onLogin={entrar}
 
+                criarConta={() => setTela("register")}
+
             />
 
         );
 
-
     }
-
-
-
-
-
-
 
 
 
@@ -124,17 +97,9 @@ function App(){
     // SISTEMA LOGADO
     // ============================
 
-
     return (
 
-
         <div className="app">
-
-
-
-
-
-
 
             <Header
 
@@ -142,48 +107,20 @@ function App(){
 
             />
 
-
-
-
-
-
-
-
-
-
             <div className="content">
-
-
 
                 <main className="main">
 
-
-
                     <DashboardPage />
-
-
 
                 </main>
 
-
-
             </div>
-
-
-
-
-
 
         </div>
 
-
     );
 
-
 }
-
-
-
-
 
 export default App;
